@@ -1,0 +1,8 @@
+# Streamlit Community Cloud 배포용 (앱 실행 최소 의존성)
+streamlit>=1.36
+pandas>=2.2
+numpy>=1.26
+plotly>=5.22
+
+# Phase 1 통계 재실행(data/varrel/run_stats.py) 시 추가 필요:
+#   scipy statsmodels lifelines
