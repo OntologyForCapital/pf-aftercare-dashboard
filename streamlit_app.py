@@ -90,7 +90,11 @@ with st.sidebar:
     b5 = st.multiselect("유형(대분류)",
                         ["주거시설", "상업시설", "산업시설", "업무시설", "숙박시설", "기타"])
     bt_pool = sites.loc[sites["biz5"].isin(b5) if b5 else slice(None), "biz_type"]
-    bt = st.multiselect("세부 유형", sorted(bt_pool.dropna().unique()),
+    bt_opts = sorted(bt_pool.dropna().unique())
+    if "bt_filter" in st.session_state:  # 대분류 변경 시 유효 선택만 보존
+        st.session_state["bt_filter"] = [
+            v for v in st.session_state["bt_filter"] if v in bt_opts]
+    bt = st.multiselect("세부 유형", bt_opts, key="bt_filter",
                         help="예: 11-아파트, 31-오피스텔, 66-물류센터, 62-아파트형공장 "
                              "(냉동/냉장 창고 구분은 원천 데이터에 없어 '물류센터'로 통합)")
     amin, amax = st.slider(
@@ -110,6 +114,10 @@ hi = np.inf if amax >= 5000 else amax * 100  # 슬라이더 상한 = 무제한
 mask &= sites["appraisal_first"].fillna(0).between(amin * 100, hi)
 f_sites = sites[mask]
 f_panel = panel[panel["site_id"].isin(f_sites["site_id"])]
+
+if f_sites.empty:
+    st.warning("조건에 맞는 사업장이 없습니다. 필터를 완화해 주세요.")
+    st.stop()
 
 tab1, tab2, tab3, tab4 = st.tabs(
     ["개요", "가격 시계열", "위험 스크리닝", "사내 데이터 결합(준비)"])
@@ -186,11 +194,12 @@ with tab2:
                     width="stretch")
 
     st.subheader("개별 사업장 경로")
+    meta_lookup = (sites.set_index("site_id")[["address", "biz_type", "sido"]]
+                   .fillna("미상"))
     pick = st.selectbox(
         "사업장 선택 (주소 · 유형 · 시도)",
         f_sites.sort_values("appraisal_last", ascending=False)["site_id"],
-        format_func=lambda sid: " · ".join(map(str, sites.set_index("site_id")
-                                               .loc[sid, ["address", "biz_type", "sido"]])))
+        format_func=lambda sid: " · ".join(map(str, meta_lookup.loc[sid])))
     sp = panel[panel["site_id"] == pick].sort_values(["month_key", "line_id"])
     line_pick = sp["line_id"].mode().iat[0]
     spl = sp[sp["line_id"] == line_pick]
@@ -216,6 +225,8 @@ with tab2:
                         y=[srow["sale_price_mn"]], name="★ 매각가", mode="markers",
                         marker=dict(size=14, color=STATUS["good"], symbol="star",
                                     line=dict(width=2, color=SURFACE)))
+    # 매각월이 관측 범위 밖이어도 시간순 위치가 맞도록 사전순 정렬 강제
+    fig.update_xaxes(type="category", categoryorder="category ascending")
     st.plotly_chart(chart_layout(fig, "백만원"), width="stretch")
     cc = st.columns(4)
     cc[0].metric("체류", f"{int(srow['n_months'])}개월")
@@ -267,8 +278,7 @@ with tab3:
         weights = pd.Series(dict(defaults)).reindex(rules.columns).astype(float)
     score = rules.astype(float).mul(weights, axis=1).sum(axis=1) / weights.sum() * 100
     s["위험점수"] = score.round(1)
-    s["발동규칙"] = rules.apply(
-        lambda r: " · ".join(rules.columns[r.values]), axis=1)
+    s["발동규칙"] = [" · ".join(rules.columns[m]) for m in rules.to_numpy()]
 
     thr = st.slider("표시 임계 점수", 0, 100, 40, step=5)
     view = (s[s["위험점수"] >= thr]

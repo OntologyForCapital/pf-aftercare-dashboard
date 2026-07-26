@@ -30,8 +30,10 @@
 
 ```csv
 site_id,month_key,exposure_mn,internal_grade
-S10811092,2026-01,4500,C2
-S10811092,2026-02,4500,C3
+S00000000,2026-01,4500,C2
+S00000000,2026-02,4500,C3
 ```
+
+※ 위는 **가상의 예시 값**이다(site_id 더미 — 실존 사업장과 무관).
 
 → 결합 후 컬럼: `int_exposure_mn`, `int_internal_grade`

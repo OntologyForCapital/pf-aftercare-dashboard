@@ -130,126 +130,126 @@
   "source": "analysis_master",
   "decision": "keep",
   "category": "금리·신용",
-  "reason": "[M] 스프레드~저감 차분 유의 · 기준금리는 이론 필수 · 대출금리 대표 1"
+  "reason": "[M] 스프레드~저감 차분 유의 · 기준금리 이론 필수 · 대출금리 대표 1 · 국고3y는 채권 수준 축 대표(월 그레인 base_rate와 ρ=-0.34 — 독립 정보, 7차 검증 복귀)"
  },
  {
   "name": "bank_loan_rate_all",
   "source": "analysis_master",
   "decision": "drop",
   "category": "탈락",
-  "reason": "bank_corp_loan_rate와 ρ>0.95 중복"
+  "reason": "bank_corp_loan_rate와 월 그레인 ρ=0.90 중복"
  },
  {
   "name": "bank_corp_loan_rate",
   "source": "analysis_master",
   "decision": "keep",
   "category": "금리·신용",
-  "reason": "[M] 스프레드~저감 차분 유의 · 기준금리는 이론 필수 · 대출금리 대표 1"
+  "reason": "[M] 스프레드~저감 차분 유의 · 기준금리 이론 필수 · 대출금리 대표 1 · 국고3y는 채권 수준 축 대표(월 그레인 base_rate와 ρ=-0.34 — 독립 정보, 7차 검증 복귀)"
  },
  {
   "name": "bank_facility_loan_rate",
   "source": "analysis_master",
   "decision": "drop",
   "category": "탈락",
-  "reason": "bank_corp_loan_rate와 ρ>0.9 중복"
+  "reason": "대출금리 대표 1종 축약(월 그레인 ρ=0.68 — 부분 중복, 축약 판단)"
  },
  {
   "name": "nonbank_corp_loan_rate",
   "source": "analysis_master",
   "decision": "drop",
   "category": "탈락",
-  "reason": "대표 대출금리와 중복"
+  "reason": "대출금리 대표 1종 축약(월 그레인 ρ=0.51 — 부분 중복, 축약 판단)"
  },
  {
   "name": "corp_bond_AA3y",
   "source": "analysis_master",
   "decision": "drop",
   "category": "탈락",
-  "reason": "spread_AA_KTB(+base_rate)로 재구성 가능"
+  "reason": "ktb_3y(수준 축, 월 그레인 ρ=0.97)+spread_AA_KTB로 재구성 가능"
  },
  {
   "name": "corp_bond_BBB3y",
   "source": "analysis_master",
   "decision": "drop",
   "category": "탈락",
-  "reason": "spread_BBB_KTB로 재구성 가능"
+  "reason": "ktb_3y(월 그레인 ρ=0.98)+spread_BBB_KTB로 재구성 가능"
  },
  {
   "name": "ktb_3y",
   "source": "analysis_master",
-  "decision": "drop",
-  "category": "탈락",
-  "reason": "base_rate·스프레드와 ρ>0.9"
+  "decision": "keep",
+  "category": "금리·신용",
+  "reason": "[M] 스프레드~저감 차분 유의 · 기준금리 이론 필수 · 대출금리 대표 1 · 국고3y는 채권 수준 축 대표(월 그레인 base_rate와 ρ=-0.34 — 독립 정보, 7차 검증 복귀)"
  },
  {
   "name": "cd_91d",
   "source": "analysis_master",
   "decision": "drop",
   "category": "탈락",
-  "reason": "base_rate와 ρ>0.95"
+  "reason": "단기 축은 base_rate로 대표(월 그레인 ρ=0.54 — 완전 중복 아님, 축약 판단)"
  },
  {
   "name": "cci_total",
   "source": "analysis_master",
   "decision": "drop",
   "category": "탈락",
-  "reason": "cci_matched·cci_yoy_pct로 대체(ρ>0.92)"
+  "reason": "cci_matched(업종매칭)·cci_yoy_pct로 대체"
  },
  {
   "name": "cci_bldg",
   "source": "analysis_master",
   "decision": "drop",
   "category": "탈락",
-  "reason": "cci_total과 ρ>0.95"
+  "reason": "cci_total과 월 그레인 ρ=0.93"
  },
  {
   "name": "cci_resi",
   "source": "analysis_master",
   "decision": "drop",
   "category": "탈락",
-  "reason": "cci_total과 ρ>0.95"
+  "reason": "cci_total과 월 그레인 ρ=0.88"
  },
  {
   "name": "cci_nonresi",
   "source": "analysis_master",
   "decision": "drop",
   "category": "탈락",
-  "reason": "cci_total과 ρ>0.95"
+  "reason": "cci_total과 월 그레인 ρ=0.93"
  },
  {
   "name": "cci_plant",
   "source": "analysis_master",
   "decision": "drop",
   "category": "탈락",
-  "reason": "cci_total과 ρ>0.9"
+  "reason": "cci_total과 월 그레인 ρ=0.98"
  },
  {
   "name": "cci_civil",
   "source": "analysis_master",
   "decision": "drop",
   "category": "탈락",
-  "reason": "cci_total과 ρ>0.95"
+  "reason": "cci_total과 월 그레인 ρ=0.97"
  },
  {
   "name": "spread_BBB_KTB",
   "source": "analysis_master",
   "decision": "keep",
   "category": "금리·신용",
-  "reason": "[M] 스프레드~저감 차분 유의 · 기준금리는 이론 필수 · 대출금리 대표 1"
+  "reason": "[M] 스프레드~저감 차분 유의 · 기준금리 이론 필수 · 대출금리 대표 1 · 국고3y는 채권 수준 축 대표(월 그레인 base_rate와 ρ=-0.34 — 독립 정보, 7차 검증 복귀)"
  },
  {
   "name": "spread_AA_KTB",
   "source": "analysis_master",
   "decision": "keep",
   "category": "금리·신용",
-  "reason": "[M] 스프레드~저감 차분 유의 · 기준금리는 이론 필수 · 대출금리 대표 1"
+  "reason": "[M] 스프레드~저감 차분 유의 · 기준금리 이론 필수 · 대출금리 대표 1 · 국고3y는 채권 수준 축 대표(월 그레인 base_rate와 ρ=-0.34 — 독립 정보, 7차 검증 복귀)"
  },
  {
   "name": "base_rate_chg_12m",
   "source": "analysis_master",
   "decision": "keep",
   "category": "금리·신용",
-  "reason": "[M] 스프레드~저감 차분 유의 · 기준금리는 이론 필수 · 대출금리 대표 1"
+  "reason": "[M] 스프레드~저감 차분 유의 · 기준금리 이론 필수 · 대출금리 대표 1 · 국고3y는 채권 수준 축 대표(월 그레인 base_rate와 ρ=-0.34 — 독립 정보, 7차 검증 복귀)"
  },
  {
   "name": "cci_yoy_pct",
@@ -277,14 +277,14 @@
   "source": "analysis_master",
   "decision": "keep",
   "category": "지역 부동산",
-  "reason": "지가누적 Cox HR 1.34(p=2.6e-7) · 아파트YoY [W] 약신호 · 미분양/공실 이론 필수"
+  "reason": "지가누적 Cox HR 1.34(p=2.6e-7) · 아파트YoY [W] 약신호 · 미분양/공실 이론 필수 · 중대형 공실/임대지수는 가격 경로와 [W] FDR-유의 동행(|ρ|≤0.21) 확인돼 유지"
  },
  {
   "name": "land_chg_cum12_pct",
   "source": "analysis_master",
   "decision": "keep",
   "category": "지역 부동산",
-  "reason": "지가누적 Cox HR 1.34(p=2.6e-7) · 아파트YoY [W] 약신호 · 미분양/공실 이론 필수"
+  "reason": "지가누적 Cox HR 1.34(p=2.6e-7) · 아파트YoY [W] 약신호 · 미분양/공실 이론 필수 · 중대형 공실/임대지수는 가격 경로와 [W] FDR-유의 동행(|ρ|≤0.21) 확인돼 유지"
  },
  {
   "name": "house_idx",
@@ -298,7 +298,7 @@
   "source": "analysis_master",
   "decision": "drop",
   "category": "탈락",
-  "reason": "apt_idx_yoy_pct와 중복"
+  "reason": "apt_idx_yoy_pct와 pooled ρ=0.99 중복"
  },
  {
   "name": "apt_idx",
@@ -312,7 +312,7 @@
   "source": "analysis_master",
   "decision": "keep",
   "category": "지역 부동산",
-  "reason": "지가누적 Cox HR 1.34(p=2.6e-7) · 아파트YoY [W] 약신호 · 미분양/공실 이론 필수"
+  "reason": "지가누적 Cox HR 1.34(p=2.6e-7) · 아파트YoY [W] 약신호 · 미분양/공실 이론 필수 · 중대형 공실/임대지수는 가격 경로와 [W] FDR-유의 동행(|ρ|≤0.21) 확인돼 유지"
  },
  {
   "name": "house_idx_src",
@@ -333,56 +333,56 @@
   "source": "analysis_master",
   "decision": "keep",
   "category": "지역 부동산",
-  "reason": "지가누적 Cox HR 1.34(p=2.6e-7) · 아파트YoY [W] 약신호 · 미분양/공실 이론 필수"
+  "reason": "지가누적 Cox HR 1.34(p=2.6e-7) · 아파트YoY [W] 약신호 · 미분양/공실 이론 필수 · 중대형 공실/임대지수는 가격 경로와 [W] FDR-유의 동행(|ρ|≤0.21) 확인돼 유지"
  },
  {
   "name": "vac_midlarge",
   "source": "analysis_master",
-  "decision": "drop",
-  "category": "탈락",
-  "reason": "vac_office와 동행"
+  "decision": "keep",
+  "category": "지역 부동산",
+  "reason": "지가누적 Cox HR 1.34(p=2.6e-7) · 아파트YoY [W] 약신호 · 미분양/공실 이론 필수 · 중대형 공실/임대지수는 가격 경로와 [W] FDR-유의 동행(|ρ|≤0.21) 확인돼 유지"
  },
  {
   "name": "rentidx_office",
   "source": "analysis_master",
   "decision": "keep",
   "category": "지역 부동산",
-  "reason": "지가누적 Cox HR 1.34(p=2.6e-7) · 아파트YoY [W] 약신호 · 미분양/공실 이론 필수"
+  "reason": "지가누적 Cox HR 1.34(p=2.6e-7) · 아파트YoY [W] 약신호 · 미분양/공실 이론 필수 · 중대형 공실/임대지수는 가격 경로와 [W] FDR-유의 동행(|ρ|≤0.21) 확인돼 유지"
  },
  {
   "name": "rentidx_midlarge",
   "source": "analysis_master",
-  "decision": "drop",
-  "category": "탈락",
-  "reason": "rentidx_office와 동행"
+  "decision": "keep",
+  "category": "지역 부동산",
+  "reason": "지가누적 Cox HR 1.34(p=2.6e-7) · 아파트YoY [W] 약신호 · 미분양/공실 이론 필수 · 중대형 공실/임대지수는 가격 경로와 [W] FDR-유의 동행(|ρ|≤0.21) 확인돼 유지"
  },
  {
   "name": "yield_office",
   "source": "analysis_master",
   "decision": "keep",
   "category": "지역 부동산",
-  "reason": "지가누적 Cox HR 1.34(p=2.6e-7) · 아파트YoY [W] 약신호 · 미분양/공실 이론 필수"
+  "reason": "지가누적 Cox HR 1.34(p=2.6e-7) · 아파트YoY [W] 약신호 · 미분양/공실 이론 필수 · 중대형 공실/임대지수는 가격 경로와 [W] FDR-유의 동행(|ρ|≤0.21) 확인돼 유지"
  },
  {
   "name": "yield_midlarge",
   "source": "analysis_master",
   "decision": "drop",
   "category": "탈락",
-  "reason": "yield_office와 동행"
+  "reason": "yield_office와 pooled ρ=0.88 동행"
  },
  {
   "name": "capret_office",
   "source": "analysis_master",
   "decision": "drop",
   "category": "탈락",
-  "reason": "yield_office와 중복"
+  "reason": "yield_office와 pooled ρ=0.96 중복"
  },
  {
   "name": "capret_midlarge",
   "source": "analysis_master",
   "decision": "drop",
   "category": "탈락",
-  "reason": "yield 계열 중복"
+  "reason": "yield_midlarge와 pooled ρ=0.96 중복"
  },
  {
   "name": "rent_yq_used",
@@ -564,7 +564,7 @@
   "source": "analysis_master",
   "decision": "keep",
   "category": "지역 부동산",
-  "reason": "지가누적 Cox HR 1.34(p=2.6e-7) · 아파트YoY [W] 약신호 · 미분양/공실 이론 필수"
+  "reason": "지가누적 Cox HR 1.34(p=2.6e-7) · 아파트YoY [W] 약신호 · 미분양/공실 이론 필수 · 중대형 공실/임대지수는 가격 경로와 [W] FDR-유의 동행(|ρ|≤0.21) 확인돼 유지"
  },
  {
   "name": "unsold_completed",
@@ -578,7 +578,7 @@
   "source": "analysis_master",
   "decision": "keep",
   "category": "지역 부동산",
-  "reason": "지가누적 Cox HR 1.34(p=2.6e-7) · 아파트YoY [W] 약신호 · 미분양/공실 이론 필수"
+  "reason": "지가누적 Cox HR 1.34(p=2.6e-7) · 아파트YoY [W] 약신호 · 미분양/공실 이론 필수 · 중대형 공실/임대지수는 가격 경로와 [W] FDR-유의 동행(|ρ|≤0.21) 확인돼 유지"
  },
  {
   "name": "appr_unit_land_mn_m2",
@@ -774,7 +774,7 @@
   "source": "analysis_master",
   "decision": "drop",
   "category": "탈락",
-  "reason": "hug_sago_n>0과 동치"
+  "reason": "hug_sago_n>0과 동치(일치율 100% 실측)"
  },
  {
   "name": "hug_sago_n",
@@ -795,14 +795,14 @@
   "source": "analysis_master",
   "decision": "drop",
   "category": "탈락",
-  "reason": "hug_sago_n과 ρ 높음·결측 다수"
+  "reason": "결측 다수 — 사고건수(n)로 대표 축약(pooled ρ=0.56)"
  },
  {
   "name": "ah_n_pblanc",
   "source": "analysis_master",
   "decision": "drop",
   "category": "탈락",
-  "reason": "kiscon 계열과 ρ 0.89 — 활동 축 대표는 kiscon 유지"
+  "reason": "지역 개발활동 축 대표는 kiscon 유지(pooled ρ=0.89)"
  },
  {
   "name": "ah_supply_sum",
@@ -823,7 +823,7 @@
   "source": "analysis_master",
   "decision": "drop",
   "category": "탈락",
-  "reason": "ah_under_ratio와 중복(역방향)"
+  "reason": "ah_under_ratio로 대표 축약(pooled ρ=-0.69 부분 중복)"
  },
  {
   "name": "ah_sale_unit_med",
@@ -893,7 +893,7 @@
   "source": "analysis_master",
   "decision": "drop",
   "category": "탈락",
-  "reason": "amt YoY와 중복"
+  "reason": "결과변수와 유의 관계 없음(amt YoY와 독립적이나 가격·이탈 무관)"
  },
  {
   "name": "kiscon_amt_priv_yoy_pct",

@@ -4,8 +4,8 @@
 경로를 시계열로 추적**하고, 실무자가 **점검이 필요한 위험 사업장을 스크리닝**할 수
 있는 Streamlit 대시보드입니다.
 
-- 대상: 전국은행연합회 공개 경공매 대상 PF 사업장 **798곳 × 17개월**(2025-01~2026-06)
-- 변수: 전수 통계 검정으로 확정한 **62열 클린 패널** (원천 129열 → 근거 기반 축약)
+- 대상: 전국은행연합회 공개 경공매 대상 PF 사업장 **798곳 × 17개월**(2025-01~2026-06, 2025-09 결측)
+- 변수: 전수 통계 검정으로 확정한 **65열 클린 패널** (원천 129열 → 유효 그레인 실측 근거로 축약)
 - 통계: 패널 3층 분해(between/within/macro) + FDR 보정 전수 검정 → [docs/PHASE1_findings.md](docs/PHASE1_findings.md)
 
 > 본 저장소의 '사업장'은 전부 공개된 경공매 대상이며 특정 기관의 보유 자산이
@@ -24,10 +24,10 @@ streamlit run streamlit_app.py
 ```
 streamlit_app.py          # 대시보드 (개요 · 가격 시계열 · 위험 스크리닝 · 사내 결합 준비)
 data/
-  panel_clean.csv         # 확정 패널 4,732행 × 62열 (사업장×월×물건라인)
+  panel_clean.csv         # 확정 패널 4,732행 × 65열 (사업장×월×물건라인)
   site_master.csv         # 사업장 1행 요약 798곳 (주소·유형·처분결과·스크리닝 원료)
   source/                 # 패널 재생성용 원천 스냅샷 (5개 CSV)
-  varrel/                 # Phase 1 전수 통계 산출물 (검정 CSV 7종 + 실행 코드)
+  varrel/                 # Phase 1 전수 통계 산출물 (CSV 11종 + summary.json + 실행 코드)
 pipeline/
   variable_catalog.json   # 변수 사전: 134개 항목 전수 keep/drop 판정과 사유
   make_catalog.py         # 판정 변경 시 카탈로그 재생성
@@ -73,7 +73,8 @@ python pipeline/build_panel.py --internal 사내데이터.csv
 ```bash
 python pipeline/build_panel.py                 # data/source/*.csv → panel_clean/site_master
 pip install scipy statsmodels lifelines        # 통계 재실행 시에만
-python data/varrel/run_stats.py                # 전수 검정 재실행 (경로 상수 수정 필요)
+python data/varrel/run_stats.py                # 전수 검정 재실행
+python data/varrel/run_stats_macro_diff.py     # 거시 차분 상관 재실행
 ```
 
 ## 라이선스·고지

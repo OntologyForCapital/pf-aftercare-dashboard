@@ -61,11 +61,15 @@ def build_panel(cat: pd.DataFrame) -> pd.DataFrame:
         panel = panel.merge(k, on=["site_id", "month_key", "line_id"], how="left")
         panel[col] = panel[col].fillna(0).astype(int)
 
-    # 불변식: 그레인 유일성
+    check_grain(panel)
+    return panel
+
+
+def check_grain(panel: pd.DataFrame, when: str = "빌드") -> None:
+    """불변식: site×month×line 유일성 (사내 결합 후에도 재검증 — 스펙 규칙 2)."""
     dup = panel.duplicated(["site_id", "month_key", "line_id"]).sum()
     if dup:
-        raise SystemExit(f"그레인 위반: site×month×line 중복 {dup}행")
-    return panel
+        raise SystemExit(f"그레인 위반({when}): site×month×line 중복 {dup}행")
 
 
 def build_site_master(panel: pd.DataFrame) -> pd.DataFrame:
@@ -73,23 +77,33 @@ def build_site_master(panel: pd.DataFrame) -> pd.DataFrame:
     disp = pd.read_csv(SRC / "site_disposal_summary.csv")[
         ["site_id", "outcome", "sale_price_mn", "sale_dt", "sale_to_appraisal_pct",
          "n_rounds_observed", "n_fail"]]
-    g = panel.sort_values("month_key").groupby("site_id")
-    agg = g.agg(
-        n_months=("month_key", "nunique"),
-        first_month=("month_key", "min"), last_month=("month_key", "max"),
+    # 가격 경로(최초/최종값)는 대표 라인 1개에서만 추출 — 다중 라인 사업장에서
+    # 라인이 섞이면 최저가>감정가 같은 모순 쌍이 생긴다(7차 검증 정정).
+    rep = (panel.groupby(["site_id", "line_id"]).size().rename("n").reset_index()
+           .sort_values(["n", "line_id"], ascending=[False, True], kind="mergesort")
+           .drop_duplicates("site_id")[["site_id", "line_id"]])
+    pmain = (panel.merge(rep, on=["site_id", "line_id"])
+             .sort_values("month_key", kind="mergesort"))
+    price = pmain.groupby("site_id").agg(
         appraisal_first=("appraisal_mn", "first"), appraisal_last=("appraisal_mn", "last"),
         min_bid_first=("min_bid_mn", "first"), min_bid_last=("min_bid_mn", "last"),
         discount_last=("discount_ratio", "last"),
+        land_chg_cum12_last=("land_chg_cum12_pct", "last"),
+    )
+    # 체류·사건·메타는 전 라인 집계
+    g = panel.sort_values(["month_key", "line_id"], kind="mergesort").groupby("site_id")
+    agg = g.agg(
+        n_months=("month_key", "nunique"),
+        first_month=("month_key", "min"), last_month=("month_key", "max"),
         max_round=("round_no", "max"),
         n_bid_cut=("ev_bid_cut", "sum"), n_reappraisal=("ev_reappraisal", "sum"),
         exited=("exited", "max"), reactivated=("reactivated", "max"),
         excess_pp=("excess_pp_med", "median"),
         appr_vs_rtms=("appr_vs_rtms_dae_3m", "median"),
-        land_chg_cum12_last=("land_chg_cum12_pct", "last"),
         region=("region", "first"), sido=("sido", "first"), sgg=("sgg", "first"),
         biz_class=("biz_class", "first"), biz_type=("biz_type", "first"),
         lon=("lon", "first"), lat=("lat", "first"),
-    ).reset_index()
+    ).join(price).reset_index()
     agg["minbid_drop_pct"] = np.where(
         agg["min_bid_first"] > 0,
         (agg["min_bid_last"] / agg["min_bid_first"] - 1) * 100, np.nan)
@@ -109,13 +123,14 @@ def merge_internal(panel: pd.DataFrame, path: str) -> pd.DataFrame:
         raise SystemExit("사내 데이터에 site_id 또는 address 컬럼 필요")
     if "address" in it.columns and "site_id" not in it.columns:
         addr = pd.read_csv(SRC / "kfb_sites_master.csv",
-                           usecols=["site_id", "address", "addr_norm"])
+                           usecols=["site_id", "address"])
         it["_a"] = it["address"].str.replace(r"\s+", "", regex=True)
         addr["_a"] = addr["address"].str.replace(r"\s+", "", regex=True)
         it = it.merge(addr[["_a", "site_id"]], on="_a", how="left").drop(columns="_a")
         unmatched = it["site_id"].isna().sum()
         if unmatched:
-            print(f"⚠ 주소 미매칭 {unmatched}행 — addr_norm 정규화 규칙 적용 필요")
+            print(f"⚠ 주소 미매칭 {unmatched}행 — site_master.csv를 참조해 "
+                  f"site_id를 직접 부여하는 것을 권장(공백 제거 대조만 수행됨)")
     val_cols = [c for c in it.columns
                 if c not in ("site_id", "address", "month_key")]
     it = it.rename(columns={c: f"int_{c}" for c in val_cols if not c.startswith("int_")})
@@ -133,6 +148,7 @@ def main():
     panel = build_panel(cat)
     if args.internal:
         panel = merge_internal(panel, args.internal)
+        check_grain(panel, when="사내 결합 후")
     sm = build_site_master(panel)
 
     panel.to_csv(OUT / "panel_clean.csv", index=False)

@@ -7,7 +7,7 @@
 ## Phase 1: 통계 및 데이터 정합성 확보 (최우선) — ✅ 완료
 
 - 처음부터 다시 돌린 전수 통계로 변수 간 관계 확인 → `docs/PHASE1_findings.md`
-- 논리적·통계적으로 유의미한 변수만 확정해 패널 고정 → `data/panel_clean.csv` (62열)
+- 논리적·통계적으로 유의미한 변수만 확정해 패널 고정 → `data/panel_clean.csv` (65열)
 - 사내 정보 첨부 시 확장 가능한 구조 → `pipeline/variable_catalog.json` + `build_panel.py --internal`
 
 ## Phase 2: Streamlit 앱 대시보드 개발 — ✅ 완료 (로컬 검증)
