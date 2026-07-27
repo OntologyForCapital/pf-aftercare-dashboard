@@ -213,20 +213,53 @@ with tab_find:
 ##### 🟢 3. 산업시설(물류)의 부실은 입지 문제가 아니다 — 4중 독립 증거
 ① 감정가/실거래 괴리 최소(1.76배 — 전 유형 중 최저) ② 소재지 공장창고 거래량 수축(YoY −8.9%)
 ③ 시장보다 싸게 내놓아도(초과할인 −4.4%p) 체류 최장(11개월) ④ **정상 리츠 물류센터와
-입지 3지표(IC거리·도시·광역시) 전부 통계적 무차이** — 남는 설명은 공급 타이밍(수요 대비 과잉).
+입지 3지표(IC거리·도시·특별광역시) 전부 통계적 무차이 — 카카오 내비 실주행거리 검증에서도
+유지**(리츠 9.2 vs PF 6.9km, 방향은 PF가 오히려 가까움). 남는 설명은 공급 타이밍(수요 대비 과잉).
 """)
 
-    traits_p = ROOT / "data" / "location" / "reits_pf_traits.csv"
-    if traits_p.exists():
-        st.markdown("##### 🟡 4. 정상 자산(리츠)과 무엇이 다른가 — 유형이 아니라 위계·규모·단계")
-        tr = pd.read_csv(traits_p)
-        tr = tr.rename(columns={"axis": "축", "metric": "지표", "reits": "리츠(정상)",
-                                "pf": "경공매 PF(부실)", "note": "비고"})
-        st.dataframe(tr, width="stretch", height=520, hide_index=True)
-        st.caption("부실 사업장도 '어느 도시 옆'에는 있다(도시 거리 무차이) — 갈리는 건 "
-                   "그 도시의 등급(광역시 15km 이내 59% vs 23%), 자산 규모(800억 vs 218억), "
-                   "완공 단계다. 유형 구성은 거의 동일. ⚠ 리츠 특성은 기관이 골라 담은 "
-                   "결과이므로 인과가 아니라 '기관투자 기준선과의 거리'로 읽을 것.")
+    bytype_p = ROOT / "data" / "location" / "reits_pf_traits_by_type.csv"
+    if bytype_p.exists():
+        st.markdown("##### 🟡 4. 정상 자산(리츠)과 무엇이 다른가 — 유형별 비교")
+        st.markdown("""
+**용어 정의** — '특별·광역시'는 대한민국 행정구역 기준 **서울특별시 + 6개 광역시
+(부산·인천·대구·대전·광주·울산) + 세종특별자치시** 8곳, '도시'는 인구 25만+
+44개 시(수원·창원·전주·천안 등 포함). 거리는 시청 기준 하버사인 직선거리.
+한국 기준으로 **특별·광역시 12km는 대도시 생활권 내부, 28km는 생활권 밖**이다 —
+이 격차는 '배수'가 아니라 질적으로 다른 입지를 뜻한다.
+""")
+        bt = pd.read_csv(bytype_p)
+        VERDICT = {
+            "주거": "부실 주거는 대도시 생활권 밖(광역시 25.9 vs 14.6km)·IC도 멀다 — 입지 열위 뚜렷",
+            "업무": "부실 업무도 광역시·IC 접근 모두 유의하게 열위",
+            "상업": "부실 상업은 광역시 24.5 vs 14.4km — 생활권 밖 상업시설",
+            "산업": "⭐ 유일한 예외 — 세 입지 지표 전부 통계적 무차이. 실주행(카카오 내비) "
+                   "검증에서도 무차이 유지(리츠 9.2 vs PF 6.9km, p=0.24 — 방향은 PF가 오히려 가까움). "
+                   "물류 부실은 입지가 아니라 공급 타이밍 문제",
+            "숙박": "가장 극적 — 리츠 호텔은 도심(광역시 5.2km), 부실 숙박은 55.4km 관광지 입지",
+        }
+        t_tabs = st.tabs(list(bt["유형"]))
+        for ttab, (_, r) in zip(t_tabs, bt.iterrows()):
+            with ttab:
+                disp = pd.DataFrame({
+                    "지표": ["특별·광역시 거리 km", "도시(25만+) 거리 km",
+                            "고속도로 IC 거리 km", "자산가액 억원(장부가/감정가)"],
+                    f"리츠 (n={int(r['리츠_n'])})": [r["리츠_광역시km"], r["리츠_도시km"],
+                                                  r["리츠_ICkm"], r["리츠_가액억"]],
+                    f"경공매 PF (n={int(r['PF_n'])})": [r["PF_광역시km"], r["PF_도시km"],
+                                                     r["PF_ICkm"], r["PF_가액억"]],
+                    "p (Mann-Whitney)": [r["p_광역시"], r["p_도시"], r["p_IC"], None],
+                })
+                st.dataframe(disp, width="stretch", hide_index=True)
+                st.markdown(f"**판정**: {VERDICT.get(r['유형'], '')}")
+        with st.expander("전체 특성 대조표 (구성·규모·완공 상태 포함)"):
+            tr = pd.read_csv(ROOT / "data" / "location" / "reits_pf_traits.csv")
+            tr = tr.rename(columns={"axis": "축", "metric": "지표", "reits": "리츠(정상)",
+                                    "pf": "경공매 PF(부실)", "note": "비고"})
+            st.dataframe(tr, width="stretch", height=500, hide_index=True)
+        st.caption("⚠ 직선거리는 실주행의 순위 프록시(표본 70곳 카카오 내비 검증: "
+                   "순위상관 ρ=0.67, 실주행은 직선의 중앙 2.6배) — 개별 값보다 집단 비교로 사용. "
+                   "리츠 특성은 기관이 골라 담은 결과이므로 인과가 아니라 "
+                   "'기관투자 기준선과의 거리'로 읽을 것.")
 
     st.markdown("""
 ##### 🟡 5. 정상 자산의 평가는 조용하다 — 하향 이벤트 약 1/9
@@ -275,7 +308,7 @@ with tab2:
 
     st.subheader("그룹별 경로 비교 — 지역 × 종류")
     gc1, gc2, gc3 = st.columns([1, 1.4, 1])
-    dim = gc1.selectbox("그룹 기준", ["권역×유형", "유형", "권역", "시도×유형"])
+    dim = gc1.selectbox("그룹 기준", ["유형", "권역×유형", "권역", "시도×유형"])
     metric_name = gc2.selectbox(
         "지표", ["최저입찰가/감정가 비율(중앙) — 저감 깊이", "최저입찰가(중앙, 백만원)",
                 "감정가(중앙, 백만원)", "공개 사업장 수"])
@@ -298,9 +331,11 @@ with tab2:
     g = g[g["n"] >= min_n]
     g["그룹"] = g[dims].astype(str).agg(" · ".join, axis=1)
 
-    top_groups = (g.groupby("그룹")["n"].max().sort_values(ascending=False)
-                  .head(12).index.tolist())
-    dropped = g["그룹"].nunique() - len(top_groups)
+    all_groups = (g.groupby("그룹")["n"].max().sort_values(ascending=False)
+                  .index.tolist())
+    sel = st.multiselect("표시할 그룹 (기본: 표본 상위 6개)", all_groups,
+                         default=all_groups[:6])
+    top_groups = sel if sel else all_groups[:6]
     fig = go.Figure()
     DASH_BY_REGION = {"수도권": "solid", "지방": "dash"}
     for grp in top_groups:
@@ -312,8 +347,8 @@ with tab2:
             if dims[0] in ("region",) else "solid"
         fig.add_scatter(x=sub["month_key"], y=sub["val"], name=grp,
                         mode="lines+markers",
-                        line=dict(color=color, width=2, dash=dash),
-                        marker=dict(size=6),
+                        line=dict(color=color, width=2.5, dash=dash),
+                        marker=dict(size=7),
                         hovertemplate=f"{grp}: %{{y:,.3g}} (표본 %{{customdata}}곳)<extra></extra>",
                         customdata=sub["n"])
     # ── 이벤트 마커: 기준금리 변경(패널 자동 추출) + 수동 이벤트 파일 ──
@@ -338,10 +373,8 @@ with tab2:
             fig.add_annotation(x=m, y=1.01 + 0.06 * (i % 2), yref="paper",
                                text=lbl, showarrow=False,
                                font=dict(size=11, color=INK2))
-    note = f"표본 {min_n}곳 미만 월 숨김"
-    if dropped > 0:
-        note += f" · 그룹 {dropped}개는 표본 상위 12개에 밀려 미표시(시도 필터로 좁히면 표시)"
-    st.caption(note + " · 수직 점선 = 전국 이벤트(금리 변경 자동 표시, "
+    st.caption(f"표본 {min_n}곳 미만 월 숨김 · 실선=수도권, 점선=지방 · "
+               "수직 점선 = 전국 이벤트(금리 변경 자동 표시, "
                "추가 이벤트는 data/events_national.csv에 month,label로 등록)")
     fig = chart_layout(fig, ytitle, 460)
     fig.update_layout(legend=dict(y=1.22), margin=dict(t=80))

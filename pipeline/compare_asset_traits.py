@@ -69,6 +69,44 @@ def main():
     print("\n[물류 한정 검정]")
     print(t[t.grp_a == "물류(리츠)"].to_string(index=False))
 
+    # ── 유형별 나란히 비교 (대시보드 '핵심 발견' 유형 탭용) ──
+    from scipy import stats as sps
+    tmap = {"주택": "주거", "주택(공동주택)": "주거", "오피스": "업무",
+            "리테일": "상업", "물류": "산업", "호텔": "숙박"}
+    re_m2 = re_m.copy()
+    re_m2["type5"] = re_m2["invest_target"].map(tmap)
+    bv_last = num(last["book_value_mn"])
+    loc2type = last[["type_pf"]].copy()
+    pf2 = pf.copy()
+    pf2["type5"] = pf2["biz5"].str.replace("시설", "")
+    brows = []
+    for t5, pf_t in [("주거", "주거"), ("업무", "업무"), ("상업", "상업"),
+                     ("산업", "산업"), ("숙박", "숙박")]:
+        a = re_m2[re_m2["type5"] == t5]
+        b = pf2[pf2["type5"] == pf_t]
+        bv_t = bv_last[loc2type["type_pf"] == t5]
+        bv_t = bv_t[bv_t > 0]
+        def mw(var):
+            x, y = a[var].dropna(), b[var].dropna()
+            if len(x) < 8 or len(y) < 8:
+                return None
+            return round(sps.mannwhitneyu(x, y)[1], 4)
+        brows.append(dict(
+            유형=t5, 리츠_n=len(a), PF_n=len(b),
+            리츠_광역시km=a["dist_metro_km"].median(), PF_광역시km=b["dist_metro_km"].median(),
+            p_광역시=mw("dist_metro_km"),
+            리츠_도시km=a["dist_city_km"].median(), PF_도시km=b["dist_city_km"].median(),
+            p_도시=mw("dist_city_km"),
+            리츠_ICkm=a["dist_ic_km"].median(), PF_ICkm=b["dist_ic_km"].median(),
+            p_IC=mw("dist_ic_km"),
+            리츠_가액억=round(bv_t.median() / 100) if len(bv_t) else None,
+            PF_가액억=round(num(b["appraisal_last"]).median() / 100),
+        ))
+    bt = pd.DataFrame(brows)
+    bt.to_csv(ROOT / "data" / "location" / "reits_pf_traits_by_type.csv", index=False)
+    print("\n[유형별 나란히]")
+    print(bt.to_string(index=False))
+
 
 if __name__ == "__main__":
     main()
