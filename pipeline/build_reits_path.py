@@ -129,6 +129,10 @@ def main():
     df["property"] = (df["property"].astype(str)
                       .str.replace("_x000D_", " ", regex=False)
                       .str.replace(r"\s+", " ", regex=True).str.strip())
+    df["location"] = (df["location"].astype(str)
+                      .str.replace("_x000D_", " ", regex=False)
+                      .str.replace(r"\s+", " ", regex=True).str.strip()
+                      .replace("nan", np.nan))
     # 합계·참조오류 행 제외(물건이 아님), 무명 물건은 표기만 정리
     junk = df["property"].str.fullmatch(r"합\s?계|소계|총계|계|#REF!")
     n_junk = int(junk.sum())
@@ -146,16 +150,43 @@ def main():
     # --- 자릿수 보정 (컬럼 단위 배율 탐지)
     df, n_scale_fixed = fix_scale(df)
 
-    # --- 회계 구조: 반기결산 리츠 판별(한 해에 2개 이상 기수가 다수인 리츠)
-    yg = df.groupby(["reits", "year"])["gi_num"].nunique().reset_index(name="n_gi")
-    semi = (yg.assign(multi=yg["n_gi"] >= 2).groupby("reits")["multi"].mean() > 0.5)
-    df["fiscal_semi"] = df["reits"].map(semi)
+    # --- 회계 구조: 연간 기수 증가 속도로 결산 주기 추정(연 1회=연간, 2회=반기, 4회=분기)
+    # 양끝 연도 기준 기울기(연중 부분 관측 편향이 연도별 차분 중앙값보다 작음)
+    ymax = df.groupby(["reits", "year"])["gi_num"].max().reset_index()
+    ymax = ymax.sort_values(["reits", "year"])
+    ends = ymax.groupby("reits").agg(g0=("gi_num", "first"), g1=("gi_num", "last"),
+                                     y0=("year", "first"), y1=("year", "last"))
+    slope = ((ends["g1"] - ends["g0"]) / (ends["y1"] - ends["y0"])).replace(
+        [np.inf, -np.inf], np.nan)
+    n_gi_year = df.groupby(["reits", "year"])["gi_num"].nunique().groupby("reits").max()
+    # 2분기/3분기 라벨은 연간 결산 리츠에서만 등장(반기/분기 리츠는 1분기·결산기만 보고)
+    has23 = df["qu"].isin(["2분기", "3분기"]).groupby(df["reits"]).any()
+
+    def classify(r):
+        s, n2, h = slope.get(r, np.nan), n_gi_year.get(r, 1), has23.get(r, False)
+        if np.isfinite(s):
+            if s >= 3:
+                return 4
+            if s >= 1.4:  # 부분 관측 연도 탓에 반기 리츠 기울기가 1.5까지 내려옴
+                return 2
+            return 1 if h else 2
+        # 관측 1개년뿐인 리츠: 해당 연도 기수 개수·라벨로 추정
+        if n2 >= 3:
+            return 4
+        if n2 == 2:
+            return 2
+        return 1 if h else 2
+
+    gi_per_year = pd.Series({r: classify(r) for r in df["reits"].unique()})
+    df["gi_per_year"] = df["reits"].map(gi_per_year)
 
     # --- 절대 분기 격자 추정: abs_q = base + (gi-1)*L + offset(qu)
-    L = np.where(df["fiscal_semi"], 2, 4)
+    L = (4 // df["gi_per_year"]).astype(int)  # 기수당 분기 수(연간4/반기2/분기1)
     off_semi = df["qu"].map({"1분기": 1, "2분기": 2, "3분기": 2, "결산기": 2})
-    off_ann = df["qu_rank"]
-    struct = (df["gi_num"] - 1) * L + np.where(df["fiscal_semi"], off_semi, off_ann)
+    offset = np.select(
+        [df["gi_per_year"] == 1, df["gi_per_year"] == 2],
+        [df["qu_rank"], off_semi], default=1)  # 분기결산 리츠는 기=1분기 -> offset 1
+    struct = (df["gi_num"] - 1) * L + offset
     anchor = df["year"] * 4 + 2.5 - struct
     base = anchor.groupby(df["reits"]).transform("median")
     # 주의: np.round는 은행가 반올림이라 base가 x.5일 때 인접 기간이 같은 분기로
@@ -226,7 +257,7 @@ def main():
     # --- 패널 저장
     panel_cols = [
         "prop_uid", "reits", "property", "year", "gi", "qu", "gi_num", "qu_rank",
-        "fiscal_semi", "cal_year_est", "cal_q_est", "abs_q_est",
+        "gi_per_year", "cal_year_est", "cal_q_est", "abs_q_est",
         "period_seq", "n_periods", "gap_quarters", "gap_months",
         "invest_target", "type_pf", "location", "sido", "region",
         "book_value_mn", "bv_prev_mn", "bv_chg_pct", "scale_factor",
