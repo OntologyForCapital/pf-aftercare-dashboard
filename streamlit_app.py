@@ -62,7 +62,7 @@ def chart_layout(fig, ytitle="", height=380):
         paper_bgcolor=SURFACE, plot_bgcolor=SURFACE,
         font=dict(family="system-ui, -apple-system, Segoe UI, sans-serif",
                   color=INK2, size=13),
-        margin=dict(l=55, r=10, t=30, b=10),
+        margin=dict(l=55, r=10, t=30, b=50),
         hovermode="x unified",
         legend=dict(orientation="h", y=1.08, x=0, font=dict(color=INK2)),
         xaxis=dict(showgrid=False, linecolor="#c3c2b7", tickfont=dict(color=MUTED)),
