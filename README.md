@@ -4,6 +4,8 @@
 경로를 시계열로 추적**하고, 실무자가 **점검이 필요한 위험 사업장을 스크리닝**할 수
 있는 Streamlit 대시보드입니다.
 
+**🔗 라이브 앱: https://pf-aftercare-dashboard-fhdynfqdime54cstappppxqy.streamlit.app/**
+
 - 대상: 전국은행연합회 공개 경공매 대상 PF 사업장 **798곳 × 17개월**(2025-01~2026-06, 2025-09 결측)
 - 변수: 전수 통계 검정으로 확정한 **65열 클린 패널** (원천 129열 → 유효 그레인 실측 근거로 축약)
 - 통계: 패널 3층 분해(between/within/macro) + FDR 보정 전수 검정 → [docs/PHASE1_findings.md](docs/PHASE1_findings.md)

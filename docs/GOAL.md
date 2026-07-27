@@ -22,11 +22,12 @@
 - 규칙 기반·설명 가능 위험 스코어 8종(가중치 조정 가능) → '위험 스크리닝' 탭
 - 각 규칙은 Phase 1 통계 근거에 연결됨
 
-## Phase 4: 배포, 검증 및 퍼블릭 접근 — ⏳ 사용자 GitHub/Streamlit 인증 필요
+## Phase 4: 배포, 검증 및 퍼블릭 접근 — ✅ 완료 (2026-07-27)
 
-- [ ] GitHub push (README '배포' 절 명령)
-- [ ] share.streamlit.io 연결 → Public 설정
-- [ ] 배포 후 교차 점검 체크리스트: 4개 탭 렌더링 / 필터 조합 / CSV 다운로드 / 개별 사업장 경로
+- [x] GitHub push → https://github.com/OntologyForCapital/pf-aftercare-dashboard
+- [x] Streamlit Community Cloud 배포 (퍼블릭): https://pf-aftercare-dashboard-fhdynfqdime54cstappppxqy.streamlit.app/
+- [x] 비로그인 브라우저 교차 점검 통과: 4개 탭 렌더링 / 필터 재계산(산업시설 69곳) /
+      CSV 다운로드 버튼 / 개별 사업장 경로 / 위험점수 분포
 
 ## Phase 5: 홍보 포스터 및 AI 공모전 제출 자료 — 초안 준비
 

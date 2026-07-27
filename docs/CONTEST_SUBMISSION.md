@@ -45,7 +45,7 @@
   - 신용스프레드 확대 국면에 저감이 깊어지는 방향 신호(차분 상관 −0.68)
   - 지가 상승 지역일수록 공매가 빨리 끝난다(Cox HR 1.34, p=2.6e-7)
 - **제품**: 지역·유형 필터, 가격 시계열, 규칙 기반 위험 스크리닝을 갖춘
-  Streamlit 대시보드 (퍼블릭 배포)
+  Streamlit 대시보드 — 퍼블릭 배포 완료: https://pf-aftercare-dashboard-fhdynfqdime54cstappppxqy.streamlit.app/
 
 ## 5. 활용 효과
 
