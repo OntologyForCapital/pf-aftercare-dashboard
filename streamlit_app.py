@@ -338,7 +338,7 @@ with tab_map:
         _, gscore = risk_scores(geo, RISK_DEFAULTS)
         geo["위험점수"] = gscore.round(1)
         geo["표시크기"] = np.sqrt(geo["appraisal_last"].fillna(
-            geo["appraisal_last"].median()).clip(lower=100))
+            geo["appraisal_last"].median()).fillna(100).clip(lower=100))
         hover = {"biz_type": True, "appraisal_last": ":,.0f", "n_months": True,
                  "위험점수": True, "lon": False, "lat": False, "표시크기": False}
         for c in ["dist_ic_km", "city_name"]:

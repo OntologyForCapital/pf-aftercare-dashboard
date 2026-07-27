@@ -59,8 +59,8 @@ def haversine_km(lat1, lon1, lat2, lon2):
 def main():
     ic = pd.read_csv(ROOT / "data" / "location" / "ic_nodes_osm.csv")
     ic.columns = ["lat", "lon", "name"]
-    # 한국 영역 필터 (bbox에 걸린 일본 규슈 제거 — 국내 고속도로는 경도 129.6 이내)
-    ic = ic[(ic["lon"] < 129.8) & (ic["lat"] > 33.0)].reset_index(drop=True)
+    # 한국 영역 필터 (bbox에 걸린 일본 규슈 제거 — 국내 고속도로 최동단 ~129.45)
+    ic = ic[(ic["lon"] < 129.6) & (ic["lat"] > 33.0)].reset_index(drop=True)
     ic["name"] = ic["name"].fillna("")
 
     sm = pd.read_csv(ROOT / "data" / "site_master.csv",
@@ -70,12 +70,14 @@ def main():
     s_lat = sites["lat"].values[:, None]
     s_lon = sites["lon"].values[:, None]
 
-    # IC 거리 (최근접 노드) + 최근접 '이름 있는' 노드의 이름
+    # IC 거리: dist_ic_km = 무명 노드 포함 최근접(진입 접근성) /
+    # ic_name·dist_named_ic_km = '이름 있는' 노드 기준 짝 (두 컬럼이 같은 노드를 가리킴)
     d_ic = haversine_km(s_lat, s_lon, ic["lat"].values[None, :], ic["lon"].values[None, :])
     sites["dist_ic_km"] = d_ic.min(axis=1).round(2)
     named = ic["name"].values != ""
     d_named = d_ic[:, named]
     sites["ic_name"] = ic.loc[named, "name"].values[d_named.argmin(axis=1)]
+    sites["dist_named_ic_km"] = d_named.min(axis=1).round(2)
 
     cdf = pd.DataFrame(CITIES, columns=["city", "clat", "clon", "pop_10k", "metro"])
     d_city = haversine_km(s_lat, s_lon, cdf["clat"].values[None, :], cdf["clon"].values[None, :])
@@ -89,7 +91,8 @@ def main():
     sites["dist_metro_km"] = d_metro.min(axis=1).round(2)
     sites["metro_name"] = cdf.loc[m, "city"].values[jm]
 
-    out = sites[["site_id", "dist_ic_km", "ic_name", "dist_city_km", "city_name",
+    out = sites[["site_id", "dist_ic_km", "ic_name", "dist_named_ic_km",
+                 "dist_city_km", "city_name",
                  "city_pop_10k", "dist_metro_km", "metro_name"]]
     out.to_csv(ROOT / "data" / "site_location.csv", index=False)
     print(f"site_location: {len(out)}곳 / site_master {len(sm)}곳 "

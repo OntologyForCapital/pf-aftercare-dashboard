@@ -20,7 +20,7 @@ ROOT = Path(__file__).resolve().parents[1]
 def attach_metrics(df: pd.DataFrame) -> pd.DataFrame:
     ic = pd.read_csv(ROOT / "data" / "location" / "ic_nodes_osm.csv")
     ic.columns = ["lat", "lon", "name"]
-    ic = ic[(ic["lon"] < 129.8) & (ic["lat"] > 33.0)]
+    ic = ic[(ic["lon"] < 129.6) & (ic["lat"] > 33.0)]
     s_lat = df["lat"].values[:, None]
     s_lon = df["lon"].values[:, None]
     d_ic = BL.haversine_km(s_lat, s_lon, ic["lat"].values[None, :], ic["lon"].values[None, :])
