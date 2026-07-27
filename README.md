@@ -24,7 +24,7 @@ streamlit run streamlit_app.py
 ## 구조
 
 ```
-streamlit_app.py          # 대시보드 (개요 · 가격 시계열 · 위험 스크리닝 · 사내 결합 준비)
+streamlit_app.py          # 대시보드 (개요 · 가격 시계열 · 위험 스크리닝 · 지도 · 사내 결합 준비)
 data/
   panel_clean.csv         # 확정 패널 4,732행 × 65열 (사업장×월×물건라인)
   site_master.csv         # 사업장 1행 요약 798곳 (주소·유형·처분결과·스크리닝 원료)
@@ -32,6 +32,7 @@ data/
   varrel/                 # Phase 1 전수 통계 산출물 (CSV 11종 + summary.json + 실행 코드)
 pipeline/
   variable_catalog.json   # 변수 사전: 134개 항목 전수 keep/drop 판정과 사유
+  build_location.py       # 입지 변수(IC거리·최근접 도시) 산출 → data/site_location.csv
   make_catalog.py         # 판정 변경 시 카탈로그 재생성
   build_panel.py          # 카탈로그 → 패널 재빌드 (+ 사내 데이터 결합 훅)
 docs/

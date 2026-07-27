@@ -1,0 +1,1828 @@
+
+
+
+
+
+
+
+ 
+
+ 
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+	
+<head>
+	
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8, IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="apple-touch-icon" sizes="57x57" href="/img/favicon/apple-icon-57x57.png"/>
+<link rel="apple-touch-icon" sizes="60x60" href="/img/favicon/apple-icon-60x60.png"/>
+<link rel="apple-touch-icon" sizes="72x72" href="/img/favicon/apple-icon-72x72.png"/>
+<link rel="apple-touch-icon" sizes="76x76" href="/img/favicon/apple-icon-76x76.png"/>
+<link rel="apple-touch-icon" sizes="114x114" href="/img/favicon/apple-icon-114x114.png"/>
+<link rel="apple-touch-icon" sizes="120x120" href="/img/favicon/apple-icon-120x120.png"/>
+<link rel="apple-touch-icon" sizes="144x144" href="/img/favicon/apple-icon-144x144.png"/>
+<link rel="apple-touch-icon" sizes="152x152" href="/img/favicon/apple-icon-152x152.png"/>
+<link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-icon-180x180.png"/>
+<link rel="icon" type="image/png" sizes="192x192"  href="/img/favicon/android-icon-192x192.png"/>
+<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32x32.png"/>
+<link rel="icon" type="image/png" sizes="96x96" href="/img/favicon/favicon-96x96.png"/>
+<link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16x16.png"/>
+
+<title>고속도로 공공데이터 포털</title>
+
+	<link type="text/css" rel="stylesheet" href="/css/ionicons.css;jsessionid=1lIYBpxx5lHzO6UhHG25iWMoWA1MIKwXvOgDL8O8t01QKlIhTAZye6htdyuWxnXj.tclapwas1_servlet_openoasis"/>
+	<link type="text/css" rel="stylesheet" href="/css/sliderResponsive.css;jsessionid=1lIYBpxx5lHzO6UhHG25iWMoWA1MIKwXvOgDL8O8t01QKlIhTAZye6htdyuWxnXj.tclapwas1_servlet_openoasis"/>
+	<link type="text/css" rel="stylesheet" href="/js/jquery/jquery.bxslider.css;jsessionid=1lIYBpxx5lHzO6UhHG25iWMoWA1MIKwXvOgDL8O8t01QKlIhTAZye6htdyuWxnXj.tclapwas1_servlet_openoasis"/>
+	
+	<!-- 박갑귀 추가 -->
+	<link type="text/css" rel="stylesheet" href="/css/jquery-ui.css;jsessionid=1lIYBpxx5lHzO6UhHG25iWMoWA1MIKwXvOgDL8O8t01QKlIhTAZye6htdyuWxnXj.tclapwas1_servlet_openoasis"/>
+	<link type="text/css" rel="stylesheet" href="/css/reset.css;jsessionid=1lIYBpxx5lHzO6UhHG25iWMoWA1MIKwXvOgDL8O8t01QKlIhTAZye6htdyuWxnXj.tclapwas1_servlet_openoasis"/>
+	<link type="text/css" rel="stylesheet" href="/css/style.css;jsessionid=1lIYBpxx5lHzO6UhHG25iWMoWA1MIKwXvOgDL8O8t01QKlIhTAZye6htdyuWxnXj.tclapwas1_servlet_openoasis?v=20251030"/>
+	<link type="text/css" rel="stylesheet" href="/css/style_dev.css;jsessionid=1lIYBpxx5lHzO6UhHG25iWMoWA1MIKwXvOgDL8O8t01QKlIhTAZye6htdyuWxnXj.tclapwas1_servlet_openoasis"/>
+	<script type="text/javascript" src="/js/jquery-3.6.0.min.js;jsessionid=1lIYBpxx5lHzO6UhHG25iWMoWA1MIKwXvOgDL8O8t01QKlIhTAZye6htdyuWxnXj.tclapwas1_servlet_openoasis"></script>
+	<script type="text/javascript" src="/js/jquery-ui.min.js;jsessionid=1lIYBpxx5lHzO6UhHG25iWMoWA1MIKwXvOgDL8O8t01QKlIhTAZye6htdyuWxnXj.tclapwas1_servlet_openoasis"></script>
+	<script type="text/javascript" src="/js/script.js;jsessionid=1lIYBpxx5lHzO6UhHG25iWMoWA1MIKwXvOgDL8O8t01QKlIhTAZye6htdyuWxnXj.tclapwas1_servlet_openoasis"></script>
+	<link rel="stylesheet" href="/plugin/aos/aos.css" />
+	<script src="/plugin/aos/aos.js"></script>
+	<link rel="stylesheet" href="/plugin/swiper/swiper-bundle.min.css" />
+	<script src="/plugin/swiper/swiper-bundle.min.js"></script>
+	<!-- 박갑귀 추가 -->
+	
+	<script type="text/javascript">var g_contextPath = "";</script>
+	
+	<script type="text/javascript" src="/js/jquery/jquery-1.8.3.js;jsessionid=1lIYBpxx5lHzO6UhHG25iWMoWA1MIKwXvOgDL8O8t01QKlIhTAZye6htdyuWxnXj.tclapwas1_servlet_openoasis"></script>
+	<!-- 키보드보안 2017-12-05 -->
+	<script type="text/javascript" src="/pluginfree/js/nppfs-1.9.0.js"></script>
+	<!-- 키보드보안 2017-12-05 -->
+	
+	<script type="text/javascript" src="/js/jquery/jquery-ui.js;jsessionid=1lIYBpxx5lHzO6UhHG25iWMoWA1MIKwXvOgDL8O8t01QKlIhTAZye6htdyuWxnXj.tclapwas1_servlet_openoasis"></script>
+	<script type="text/javascript" src="/js/highcharts/highcharts.src.js;jsessionid=1lIYBpxx5lHzO6UhHG25iWMoWA1MIKwXvOgDL8O8t01QKlIhTAZye6htdyuWxnXj.tclapwas1_servlet_openoasis"></script>
+	<script type="text/javascript" src="/js/highcharts/modules/exporting.src.js;jsessionid=1lIYBpxx5lHzO6UhHG25iWMoWA1MIKwXvOgDL8O8t01QKlIhTAZye6htdyuWxnXj.tclapwas1_servlet_openoasis"></script>
+	
+	<script type="text/javascript" src="/js/jquery/jquery.jcarousel.js;jsessionid=1lIYBpxx5lHzO6UhHG25iWMoWA1MIKwXvOgDL8O8t01QKlIhTAZye6htdyuWxnXj.tclapwas1_servlet_openoasis"></script>
+	<script type="text/javascript" src="/js/vrBar.js;jsessionid=1lIYBpxx5lHzO6UhHG25iWMoWA1MIKwXvOgDL8O8t01QKlIhTAZye6htdyuWxnXj.tclapwas1_servlet_openoasis"></script>
+	<script type="text/javascript" src="/js/addanevent.js;jsessionid=1lIYBpxx5lHzO6UhHG25iWMoWA1MIKwXvOgDL8O8t01QKlIhTAZye6htdyuWxnXj.tclapwas1_servlet_openoasis"></script>
+	<script type="text/javascript" src="/js/select.js;jsessionid=1lIYBpxx5lHzO6UhHG25iWMoWA1MIKwXvOgDL8O8t01QKlIhTAZye6htdyuWxnXj.tclapwas1_servlet_openoasis"></script>
+	<script type="text/javascript" src="/js/tab.js;jsessionid=1lIYBpxx5lHzO6UhHG25iWMoWA1MIKwXvOgDL8O8t01QKlIhTAZye6htdyuWxnXj.tclapwas1_servlet_openoasis"></script>
+	
+	<script type="text/javascript" src="/js/oasis/oasisCommon.js;jsessionid=1lIYBpxx5lHzO6UhHG25iWMoWA1MIKwXvOgDL8O8t01QKlIhTAZye6htdyuWxnXj.tclapwas1_servlet_openoasis"></script>
+	<script type="text/javascript" src="/js/oasis/oasisChart.js;jsessionid=1lIYBpxx5lHzO6UhHG25iWMoWA1MIKwXvOgDL8O8t01QKlIhTAZye6htdyuWxnXj.tclapwas1_servlet_openoasis"></script>
+	
+	<script type="text/javascript" src="/js/base64.js;jsessionid=1lIYBpxx5lHzO6UhHG25iWMoWA1MIKwXvOgDL8O8t01QKlIhTAZye6htdyuWxnXj.tclapwas1_servlet_openoasis"></script>
+	<script type="text/javascript" src="/js/sliderResponsive.js;jsessionid=1lIYBpxx5lHzO6UhHG25iWMoWA1MIKwXvOgDL8O8t01QKlIhTAZye6htdyuWxnXj.tclapwas1_servlet_openoasis"></script>
+	<script type="text/javascript" src="/js/jquery.scrollbox.js;jsessionid=1lIYBpxx5lHzO6UhHG25iWMoWA1MIKwXvOgDL8O8t01QKlIhTAZye6htdyuWxnXj.tclapwas1_servlet_openoasis"></script>
+	<script type="text/javascript" src="/js/visual/js/jquery/jquery.bxslider.js;jsessionid=1lIYBpxx5lHzO6UhHG25iWMoWA1MIKwXvOgDL8O8t01QKlIhTAZye6htdyuWxnXj.tclapwas1_servlet_openoasis"></script>
+	
+</head>
+ 
+
+<script type="text/javascript" src="/js/filedown/common.js;jsessionid=1lIYBpxx5lHzO6UhHG25iWMoWA1MIKwXvOgDL8O8t01QKlIhTAZye6htdyuWxnXj.tclapwas1_servlet_openoasis"></script>
+<script type="text/javascript" src="/js/filedown/view.js;jsessionid=1lIYBpxx5lHzO6UhHG25iWMoWA1MIKwXvOgDL8O8t01QKlIhTAZye6htdyuWxnXj.tclapwas1_servlet_openoasis?v=20251215"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+<script>
+function goLoginCheck(){
+	 var result = true;
+	return result;
+}
+</script>
+
+<body>
+
+<noscript>
+스크립트를 지원하지 않습니다. 정상적인 작동이 불가능 합니다.
+</noscript>
+
+<style>
+	.table_02{
+		table-layout: auto;
+	}
+</style>
+
+<form id="downloadView" name="diwonloadView">
+	<input type="hidden" id="collectType" value="ETC" />
+	<input type="hidden" id="dataType" value="AI" />
+	<input type="hidden" id="dayClsnYn" value="N" />
+	<input type="hidden" id="pn" value="0" />
+	<input type="hidden" id="CATEGORY" value="" />
+	<input type="hidden" id="GROUP_TR" value="" />
+	<input type="hidden" id="serviceType" value="" />
+	<input type="hidden" id="keyWord" value="" />
+	<input type="hidden" id="searchDayFrom" value="" />
+	<input type="hidden" id="searchDayTo" value="" />
+	<input type="hidden" id="docuTitle" value="고속도로 출입시설 위치정보(FILE)" />
+	<input type="hidden" id="serviceId" value="786" />
+
+    <!-- header area -->
+    
+<style>
+.h_header.idx .gnb ul li a {color:var(--white);text-shadow: 0px 0px 10px #000000;}
+.h_index .sec_01 .txt_wrap h1 {line-height:1.4;text-shadow: 0px 0px 10px #000000;}
+.h_header.idx.on .gnb ul li a, .h_header.idx:hover .gnb ul li a, .h_header.idx.white .gnb ul li a {color:var(--black);text-shadow: none;}
+</style> 
+<script type="text/javascript">
+
+
+var grandPaMenu = ""
+var parentMenuCd = "";
+$(document).ready(function(){
+	$.ajax({
+		data: {
+			'main_menu':''
+			, 'sub_menu':''
+			},
+		dataType: 'json',						//전송받을 타입
+		type: 'POST',							//전송 방식
+		//async:false,
+		url: '/portal/comm/getMenuList;jsessionid=1lIYBpxx5lHzO6UhHG25iWMoWA1MIKwXvOgDL8O8t01QKlIhTAZye6htdyuWxnXj.tclapwas1_servlet_openoasis',
+		success: function(D) {
+			// 메뉴 순서 정렬 2024.10.23 한태상
+			D.sort(function(a,b){
+				a = a.menuCd;
+				b = b.menuCd;
+				return a.localeCompare(b, undefined, {numeric: true, sensitivity: 'base'});
+			})
+			
+			
+			for(var i=0 in D){
+				var row = D[i];
+				var menuCd = row.menuCd;
+				var jsps = row.jsps;
+				var mUri = "/openoasis/portal/download/view2";
+				var uResult = "view2";
+				
+				// 사이트맵 분류 별 조회 2024.10.23 한태상
+				var menu = "";
+				if(row.menuCd.length== 5 && row.parentMenuCd== '100'){
+					makeSiteMap(0,row);
+					makeHeaderMenu(100, row);
+				} 
+				if((row.menuLevel == '3' && row.parentMenuCd.substr(0,5)== '200_1') || 
+						row.menuLevel == '2' && (row.menuCd.substr(0,4)== '200_' && row.menuCd.substr(0,5) != '200_1')){
+					
+					makeSiteMap(1,row);
+					makeHeaderMenu(200, row);
+					makeMobMenu('200',row);
+				}
+				if(row.menuLevel == '2' && row.parentMenuCd== '300'){
+					makeSiteMap(2,row);
+					makeHeaderMenu(300, row);
+					makeMobMenu('300',row);
+				}
+				if(row.menuLevel == '2' && row.parentMenuCd== '400'){
+					makeSiteMap(3,row);
+					makeHeaderMenu(400, row);
+					makeMobMenu('400',row);
+				}
+				
+				if(row.parentMenuCd.substr(0,6)== '200_1_' || row.menuCd.substr(0,6)== '200_7_'){
+					$('#mobMenu4').append('<li><a href="'+ g_contextPath + row.url +'" class="'+ row.parentMenuCd.substr(0,7) +' submenu">'+ row.menuNm +'</a></li>');
+				}
+				
+				if (jsps != null && jsps != '' && jsps.indexOf(uResult) >= 0 && mUri != '/openoasis/portal/main') {
+					$('#mobDiv').removeClass("none");
+					grandPaMenu = menuCd.substr(0, 3);
+					parentMenuCd = row.parentMenuCd.substr(0,7);
+				}else if(mUri.startsWith('/openoasis/portal/guide')) {
+					$('#mobDiv').removeClass("none");
+					grandPaMenu = '500';
+				}		
+			}
+			var currentUrl = window.location.href;
+			$('a').each(function(){
+				if(currentUrl.indexOf($(this).attr('href')) > -1){
+					$(this).parents("li").addClass("active");
+					$(this).addClass('active'); 
+				}
+			}); 
+			
+			$('#selectMobMenu1').html($('.gnb .menu' + grandPaMenu).text() + '<img src="/img/arrow_bottom.svg" alt="메뉴 열기" />');
+			$('#mobMenu2_' + grandPaMenu).children().clone().appendTo('#mobMenu2_current');
+			
+			
+			if(grandPaMenu == '200'){
+				$('#selectMobMenu1').html('시각화 자료<img src="/img/arrow_bottom.svg" alt="메뉴 열기" />');
+				$('#mobMenu3').removeClass("none");
+				$('#selectMobMenu3').html($('#mobMenu4 .active a').text() + '<img src="/img/arrow_bottom.svg" alt="메뉴 열기" />');
+				$('.submenu').hide();
+				$('.'+parentMenuCd).show();
+				$('#selectMobMenu2').html($('.mob .menu' + parentMenuCd).text() + '<img src="/img/arrow_bottom.svg" alt="메뉴 열기" />');
+			}else{
+				$('#selectMobMenu2').html($('#mobMenu2_current .active a').text() + '<img src="/img/arrow_bottom.svg" alt="메뉴 열기" />');
+			}
+			
+			
+			setTimeout(function() {
+				document.querySelectorAll('.mob').forEach(function(element){
+					element.removeAttribute('style');
+				});
+				$('.gnb').find('.active').removeClass('active');
+			}, 1000);
+		},
+		error: function(D) {
+			
+		}
+	});
+	
+
+	$("li.top_main_menu").bind('mouseover', function() {
+		
+		//var menu_no = $(this).attr("data-type");
+		//$(".topsub").hide();
+		//$("#sub_" + menu_no).show();
+		$(".topsub").addClass("none");
+		$(this).children("ul").removeClass("none");		
+	});
+	
+	//2024.10.30 한태상 추가
+	// 실시간 검색어 자동완성
+	 var autoList;
+	 $.ajax({
+		url : g_contextPath+"/portal/getAutoCompleteList"
+	  , type : "GET"
+	  , async : false
+	  , success : function(data) {
+		  autoList = data.list;
+	  }
+	  , error : function() {
+		  autoList = [];
+	  }
+	});
+	
+	 $("#KeyWord1").autocomplete({
+		source : autoList
+		, minLength : 2
+		, autoFocus : false
+		, classes: {
+			'ui-autocomplete ui-front ui-menu ui-widget ui-widget-content ui-corner-all' : 'select_box'
+		}
+		, select : function(evt, ui) {
+		}
+		, focus : function(evt, ui) {
+			return false;
+		}
+		, close : function(evt) {
+			
+		}
+	});
+	
+});
+
+//mouse over submenu display 사용안함 (1010 개선사업)
+ function subMenuDisplay(data_type) {
+	var menu_no = data_type;
+	$(".topsub").addClass("none");
+	$("#sub_" + menu_no).removeClass("none");
+	
+} 
+
+//사이트맵 분류 별 조회 2024.10.23 한태상
+function makeSiteMap(listnum, row){
+	$('.sitemapUl .depth_02').eq(listnum).append('<li><a href ='+ g_contextPath + row.url + '>'+ row.menuNm + '</a></li>');
+}
+
+//헤더 드랍다운메뉴 2024.10.23 한태상
+function makeHeaderMenu(listnum, row){
+	if($('.inner.menu' + listnum + ' .lnb .box ul li').length%4 == 0){
+		$('.inner.menu' + listnum + ' .lnb').append('<div class = "box"><ul></ul></div>');
+	}
+	$('.inner.menu' + listnum + ' ul').last().append('<li><a href ='+g_contextPath + row.url + '>'+ row.menuNm + '</a></li>');
+}
+
+//상단 검색 버튼 클릭시 검색 2024.10.30 한태상
+ function submitForm(){
+	document.getElementById('dataset').submit();
+}
+
+//2024.11.21 한태상 모바일 메뉴 만들기
+function makeMobMenu(listnum,row){
+	$('#mobMenu2_' + listnum).append('<li><a href ="'+g_contextPath + row.url +'" class="menu'+ row.menuCd +'" onclick=showSubMenu("'+ row.menuCd +'")>'+ row.menuNm + '</a></li>');
+}
+
+//2024.11.25 한태상 모바일 메뉴 만들기 depth 1
+function showMenu(menu){
+	event.preventDefault();
+	$('#mobMenu1').hide();
+	$('#selectMobMenu1').removeClass('on');
+	$('#mobMenu2_current').empty();
+	$('#selectMobMenu1').html("");
+	
+	if(menu != null || menu != ''){
+		grandPaMenu = menu;
+		if(grandPaMenu == '200'){
+			$('#mobMenu2_200').find('.active').removeClass('active');
+		}
+		$('#mobMenu1').find('.active').removeClass('active');
+		$('.menu_0' + grandPaMenu.substr(0,1) + ' a').addClass('active');
+		$('.menu_0' + grandPaMenu.substr(0,1)).addClass('active');
+		$('#selectMobMenu1').html($('#mobMenu1 .active a').text() + '<img src="/img/arrow_bottom.svg" alt="메뉴 열기" />');
+		$('#mobMenu2_' + grandPaMenu).children().clone().appendTo('#mobMenu2_current');
+		$('#selectMobMenu2').html($('#mobMenu2_current .active a').text() + '<img src="/img/arrow_bottom.svg" alt="메뉴 열기" />');
+
+		$('#selectMobMenu2').addClass('on');
+		$('#mobMenu2_current').show();
+		
+	}
+	 if(grandPaMenu == '200'){
+		$('#mobMenu3').removeClass("none");
+	}else{
+		$('#mobMenu3').addClass("none");
+	} 
+}
+
+//2024.11.25 한태상 모바일 메뉴 만들기 depth 2
+function showSubMenu(menu){
+	if(menu.substr(0,6)  == "200_1_" || menu.substr(0,6)  == "200_7_"){
+		$('#selectMobMenu2').removeClass("on");
+		$('#mobMenu2_current').hide();	
+		event.preventDefault();
+		$('#mobMenu2_current').find('.active').removeClass('active');
+		$('.menu' + menu).addClass("active");
+		$('.submenu').hide();
+		$('#selectMobMenu2').html($('#mobMenu2_current .active').text() + '<img src="/img/arrow_bottom.svg" alt="메뉴 열기" />');
+		$('.'+menu).show();
+		
+		$('#selectMobMenu3').addClass('on');
+		$('#mobMenu4').show();
+		
+	}
+	
+}
+
+
+
+
+//-->
+</script>
+  
+
+ 
+ 
+	<!-- 헤더 공통영역 시작 -->
+	<header class="h_header">
+        <div class="wrapper">
+            <a href=/;jsessionid=1lIYBpxx5lHzO6UhHG25iWMoWA1MIKwXvOgDL8O8t01QKlIhTAZye6htdyuWxnXj.tclapwas1_servlet_openoasis class="logo">
+                <svg width="162" height="44" viewBox="0 0 162 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_375_20003)">
+                    <path d="M38.7102 13.0836C37.2741 14.4937 35.5777 14.7844 33.469 14.7844H15.4068C13.9707 14.7844 12.6951 13.6216 12.0964 11.9859H7.40186C8.25659 15.9342 11.5193 18.8845 15.4025 18.8845H33.4647C36.0332 18.8845 39.335 18.5418 42.0684 15.8517L45.0274 12.9404L41.9426 9.90332C40.1767 11.6388 38.7102 13.0836 38.7102 13.0836Z" fill="#E60020"></path>
+                    <path d="M15.4068 5.09181H27.1822C27.7028 5.09181 28.2799 5.66453 28.2799 6.48889C28.2799 7.31325 27.7028 7.8903 27.1822 7.8903H12.0964C11.8664 8.51942 11.7363 9.21362 11.7363 9.94253C11.7363 10.6714 11.8664 11.3656 12.0964 11.9948H27.1778C30.2974 11.9948 32.8312 9.52601 32.8312 6.49323C32.8312 3.46044 30.2974 0.991699 27.1778 0.991699H15.4025C11.5193 0.991699 8.25659 3.94204 7.40186 7.8903H12.0964C12.6908 6.2546 13.9664 5.09181 15.4068 5.09181Z" fill="#E60020"></path>
+                    <path d="M11.7363 9.93797C11.7363 9.20906 11.8665 8.51486 12.0965 7.88574H7.40194C7.25876 8.54523 7.18066 9.23075 7.18066 9.93797C7.18066 10.6452 7.25876 11.3307 7.40194 11.9902H12.0965C11.8665 11.3611 11.7363 10.6669 11.7363 9.93797Z" fill="#901A00"></path>
+                    <path d="M7.4019 7.89014H2.27784C1.0196 7.89014 0 8.80995 0 9.94236C0 11.0748 1.0196 11.9946 2.27784 11.9946H7.4019C7.25872 11.3351 7.18062 10.6496 7.18062 9.94236C7.18062 9.23515 7.25872 8.55396 7.4019 7.89014Z" fill="#E60020"></path>
+                    <path d="M51.2753 6.7926C52.7114 5.37817 54.4079 5.08747 56.5165 5.08747H58.0177C59.276 5.08747 60.2956 4.172 60.2956 3.03959C60.2956 1.90717 59.2716 0.991699 58.0134 0.991699H56.5122C53.9437 0.991699 50.6419 1.3388 47.9085 4.02882C47.9085 4.02882 46.6285 5.28705 45.0232 6.86636L48.108 9.90348L51.2666 6.7926H51.2753Z" fill="#E60020"></path>
+                    <path d="M41.7734 3.67266C40.4718 2.39273 38.8491 1.41217 37.0529 1.05206C35.8293 0.80475 34.5841 1.38614 34.25 2.4795C33.9116 3.57287 34.6232 4.70094 35.8337 5.00465C36.8576 5.26064 37.6777 5.71621 38.4109 6.44078L41.9383 9.90743C42.9449 8.9182 44.0469 7.83351 45.0231 6.87031L41.7691 3.677L41.7734 3.67266Z" fill="#0076BF"></path>
+                    <path d="M58.0438 14.7497H56.5426C54.434 14.7497 52.7375 14.459 51.3014 13.0489L48.1124 9.90332L45.0276 12.9404L47.9389 15.817C50.6723 18.507 53.9741 18.8541 56.5426 18.8541H58.0438C59.3021 18.8541 60.3217 17.9387 60.3217 16.8063C60.3217 15.6738 59.3021 14.7584 58.0438 14.7584V14.7497Z" fill="#0076BF"></path>
+                    <path class="color" d="M45.0275 6.86621C44.0469 7.82941 42.9449 8.9141 41.9426 9.90333L45.0275 12.9405L48.1123 9.90333L45.0275 6.86621Z" fill="#0F2A86"></path>
+                    <path class="text" d="M160.056 1.521H157.718V18.1557H160.056V8.22002H162V6.606H160.056V1.521Z" fill="#0F2A86"></path>
+                    <path class="text" d="M152.789 5.09156V1.65527H150.45V5.09156C150.45 7.90306 149.331 10.233 146.71 11.8643L147.738 13.1877C149.474 12.2765 150.771 10.9011 151.622 9.40861C152.468 10.9011 153.769 12.2765 155.5 13.1877L156.533 11.8643C153.908 10.2286 152.793 7.89872 152.793 5.09156H152.789Z" fill="#0F2A86"></path>
+                    <path class="text" d="M82.5358 5.88143V1.521H80.1973V13.6348H82.5358V7.49545H84.4796V5.88143H82.5358Z" fill="#0F2A86"></path>
+                    <path class="text" d="M78.1234 7.06142C78.1234 5.79451 77.529 4.72718 76.5875 4.02864H78.2232V2.41463H74.9518V0.939453H72.6132V2.41463H69.3418V4.02864H71.0339C70.0967 4.72718 69.5023 5.79451 69.5023 7.06142C69.5023 9.34794 71.4331 11.2006 73.815 11.2006C76.197 11.2006 78.1278 9.34794 78.1278 7.06142H78.1234ZM71.8409 7.06142C71.8409 5.63831 72.7217 4.48855 73.8107 4.48855C74.8997 4.48855 75.7848 5.63831 75.7848 7.06142C75.7848 8.48453 74.8997 9.6343 73.8107 9.6343C72.7217 9.6343 71.8409 8.48019 71.8409 7.06142Z" fill="#0F2A86"></path>
+                    <path class="text" d="M82.6617 18.1037V16.4897H73.8974V12.8755H71.5588V16.724C71.5588 17.4398 72.1229 18.1037 73.0297 18.1037H82.666H82.6617Z" fill="#0F2A86"></path>
+                    <path class="text" d="M102.954 1.74219V9.06599C102.954 9.78188 103.518 10.4457 104.425 10.4457H107.427V15.3138H102.091V16.9321H115.102V15.3138H109.766V10.4457H113.979V8.82736H105.288V3.36054H113.979V1.74219H102.95H102.954Z" fill="#0F2A86"></path>
+                    <path class="text" d="M93.8992 11.8992V9.10937H99.4831V7.49536H98.3073V3.12191C98.3073 2.40602 97.7433 1.74219 96.8365 1.74219H86.801V3.36054H95.9687V7.49536H85.981V9.10937H91.5649V11.8992H86.801V13.5175H95.9687V18.1557H98.3073V11.8992H93.8992Z" fill="#0F2A86"></path>
+                    <path class="text" d="M118.001 10.0509C118.001 10.7668 118.565 11.4306 119.472 11.4306H122.6V15.3138H117.137V16.9321H130.397V15.3138H124.939V11.4306H129.273V9.81659H120.335V7.50838H129.273V3.12191C129.273 2.40602 128.709 1.74219 127.802 1.74219H118.001V3.36054H126.934V5.89436H118.001V10.0552V10.0509Z" fill="#0F2A86"></path>
+                    <path class="text" d="M133.212 1.74219V3.36054H142.259V8.66682H138.996V5.52557H136.657V8.66682H132.024V10.2852H146.02V8.66682H144.597V3.12191C144.597 2.40602 144.033 1.74219 143.127 1.74219H133.212Z" fill="#0F2A86"></path>
+                    <path class="text" d="M138.944 11.1572C136.18 11.1572 133.937 12.8754 133.937 14.997C133.937 17.1187 136.18 18.8368 138.944 18.8368C141.708 18.8368 143.951 17.1187 143.951 14.997C143.951 12.8754 141.712 11.1572 138.944 11.1572ZM138.944 17.2618C137.469 17.2618 136.276 16.2466 136.276 14.997C136.276 13.7475 137.469 12.7322 138.944 12.7322C140.419 12.7322 141.612 13.7475 141.612 14.997C141.612 16.2466 140.419 17.2618 138.944 17.2618Z" fill="#0F2A86"></path>
+                    </g>
+                    <path class="color text" d="M156.283 31.1906H151.688V32.0629H155.863V33.5428H151.688V34.5086C152.856 34.5086 153.811 34.4904 154.554 34.454C155.297 34.4177 156.044 34.3424 156.797 34.2282L156.937 35.7859C156.07 35.9157 155.213 35.9988 154.367 36.0351C153.521 36.0663 152.337 36.0819 150.815 36.0819H149.709V29.6329H156.283V31.1906ZM160.987 36.3623H159.009V33.4337H156.704V31.876H159.009V28.854H160.987V36.3623ZM160.987 40.5993H153.557V41.4093H161.408V42.9359H151.563V39.1662H159.009V38.4029H151.548V36.8763H160.987V40.5993Z" fill="#222222"></path>
+                    <path class="color text" d="M147.911 41.4558H134.935V39.789H140.387V37.2343H136.01V35.6766H137.91V31.6265H135.947V30.0376H146.82V31.6265H144.826V35.6766H146.758V37.2343H142.365V39.789H147.911V41.4558ZM142.864 35.6766V31.6265H139.904V35.6766H142.864Z" fill="#222222"></path>
+                    <path class="color text" d="M128.798 43.0605H126.835V35.4588H124.343V33.8543H126.835V28.854H128.798V43.0605ZM124.109 31.6423H119.467V33.9945H123.595V35.5522H119.467V38.2315C120.537 38.2211 121.479 38.1926 122.294 38.1459C123.11 38.0939 123.933 38.0031 124.763 37.8733L124.966 39.4621C123.979 39.6127 122.998 39.7166 122.022 39.7737C121.046 39.8256 119.908 39.8516 118.61 39.8516H117.489V30.0379H124.109V31.6423Z" fill="#222222"></path>
+                    <path class="color text" d="M114.6 43.0605H112.59V28.854H114.6V43.0605ZM106.905 29.851C107.616 29.851 108.252 30.0586 108.813 30.474C109.379 30.8894 109.823 31.4788 110.145 32.2421C110.467 33.0054 110.628 33.8907 110.628 34.898C110.628 35.9157 110.467 36.8088 110.145 37.5773C109.823 38.3406 109.379 38.9299 108.813 39.3453C108.252 39.7555 107.616 39.9606 106.905 39.9606C106.178 39.9606 105.529 39.7555 104.957 39.3453C104.386 38.9299 103.94 38.3406 103.618 37.5773C103.301 36.8088 103.145 35.9157 103.151 34.898C103.145 33.8907 103.301 33.0054 103.618 32.2421C103.94 31.4788 104.386 30.8894 104.957 30.474C105.529 30.0586 106.178 29.851 106.905 29.851ZM106.905 31.6423C106.536 31.6423 106.211 31.7696 105.931 32.024C105.656 32.2732 105.443 32.6419 105.292 33.13C105.142 33.6181 105.067 34.2074 105.067 34.898C105.067 35.5938 105.142 36.1857 105.292 36.6738C105.443 37.1619 105.656 37.5306 105.931 37.7798C106.211 38.029 106.536 38.1536 106.905 38.1536C107.268 38.1536 107.585 38.029 107.855 37.7798C108.125 37.5254 108.335 37.1541 108.486 36.666C108.636 36.1779 108.712 35.5886 108.712 34.898C108.712 34.2126 108.636 33.6258 108.486 33.1378C108.335 32.6445 108.122 32.2732 107.847 32.024C107.577 31.7696 107.263 31.6423 106.905 31.6423Z" fill="#222222"></path>
+                    <path class="color text" d="M100.916 43.0293H98.9996V28.854H100.916V43.0293ZM97.9092 42.3907H96.0555V35.6457H93.5164V34.0257H96.0555V29.1032H97.9092V42.3907ZM94.4822 32.0473H91.0084V38.2237C91.8133 38.2134 92.5194 38.1822 93.127 38.1303C93.7397 38.0784 94.3628 37.9875 94.9962 37.8577L95.152 39.4777C94.3939 39.6335 93.6332 39.7373 92.8699 39.7893C92.1118 39.8412 91.1694 39.8672 90.0426 39.8672H89.0613V30.4585H94.4822V32.0473Z" fill="#222222"></path>
+                    <path class="color text" d="M80.9066 37.6863C81.9399 37.6863 82.8355 37.7928 83.5936 38.0057C84.3517 38.2134 84.9359 38.5197 85.3461 38.9247C85.7563 39.3245 85.964 39.8048 85.9692 40.3656C85.964 40.916 85.7563 41.3911 85.3461 41.7909C84.9359 42.1908 84.3491 42.4971 83.5859 42.71C82.8278 42.9229 81.9347 43.0293 80.9066 43.0293C79.8888 43.0293 78.9983 42.9229 78.2351 42.71C77.477 42.4971 76.8902 42.1908 76.4748 41.7909C76.0646 41.3911 75.8595 40.916 75.8595 40.3656C75.8595 39.8048 76.0646 39.3245 76.4748 38.9247C76.8902 38.5197 77.477 38.2134 78.2351 38.0057C78.9932 37.7928 79.8837 37.6863 80.9066 37.6863ZM80.9066 39.1662C79.92 39.1662 79.1619 39.2674 78.6323 39.4699C78.1026 39.6724 77.8378 39.971 77.8378 40.3656C77.8378 40.7447 78.1026 41.0329 78.6323 41.2302C79.1619 41.4223 79.92 41.5183 80.9066 41.5183C81.8931 41.5183 82.6538 41.4223 83.1886 41.2302C83.7235 41.0329 83.9909 40.7447 83.9909 40.3656C83.9909 39.971 83.7235 39.6724 83.1886 39.4699C82.6538 39.2674 81.8931 39.1662 80.9066 39.1662ZM85.8913 30.6454C85.8913 31.4087 85.8679 32.0707 85.8212 32.6315C85.7797 33.1923 85.668 33.7972 85.4863 34.4463L83.5391 34.2593C83.6793 33.6778 83.7728 33.1456 83.8195 32.6627C83.8662 32.1798 83.8948 31.6423 83.9052 31.0504H75.9997V29.4927H85.8913V30.6454ZM87.4179 36.7828H74.551V35.1784H79.38V32.7016H81.3427V35.1784H87.4179V36.7828Z" fill="#222222"></path>
+                    <path class="color text" d="M66.8018 37.6863C67.8351 37.6863 68.7308 37.7928 69.4889 38.0057C70.247 38.2134 70.8312 38.5197 71.2414 38.9247C71.6516 39.3245 71.8593 39.8048 71.8644 40.3656C71.8593 40.916 71.6516 41.3911 71.2414 41.7909C70.8312 42.1908 70.2444 42.4971 69.4811 42.71C68.723 42.9229 67.8299 43.0293 66.8018 43.0293C65.7841 43.0293 64.8936 42.9229 64.1303 42.71C63.3722 42.4971 62.7855 42.1908 62.3701 41.7909C61.9599 41.3911 61.7548 40.916 61.7548 40.3656C61.7548 39.8048 61.9599 39.3245 62.3701 38.9247C62.7855 38.5197 63.3722 38.2134 64.1303 38.0057C64.8884 37.7928 65.7789 37.6863 66.8018 37.6863ZM66.8018 39.1662C65.8153 39.1662 65.0572 39.2674 64.5275 39.4699C63.9979 39.6724 63.7331 39.971 63.7331 40.3656C63.7331 40.7447 63.9979 41.0329 64.5275 41.2302C65.0572 41.4223 65.8153 41.5183 66.8018 41.5183C67.7884 41.5183 68.5491 41.4223 69.0839 41.2302C69.6187 41.0329 69.8861 40.7447 69.8861 40.3656C69.8861 39.971 69.6187 39.6724 69.0839 39.4699C68.5491 39.2674 67.7884 39.1662 66.8018 39.1662ZM71.7866 30.6454C71.7866 31.4087 71.7632 32.0707 71.7165 32.6315C71.6749 33.1923 71.5633 33.7972 71.3815 34.4463L69.4344 34.2593C69.5746 33.6778 69.668 33.1456 69.7148 32.6627C69.7615 32.1798 69.7901 31.6423 69.8005 31.0504H61.895V29.4927H71.7866V30.6454ZM73.3131 36.7828H60.4463V35.1784H65.2752V32.7016H67.238V35.1784H73.3131V36.7828Z" fill="#222222"></path>
+                    <path class="color text" d="M55.2906 41.4559H42.3147V39.8203H47.7823V37.6862H43.8101V32.9196H51.8324V31.3618H43.7945V29.7729H53.7952V34.4773H45.804V36.0662H54.1223V37.6862H49.7606V39.8203H55.2906V41.4559Z" fill="#222222"></path>
+                    <path class="color text" d="M39.7683 36.7674H35.6559V39.7894H41.1858V41.4094H28.21V39.7894H33.6776V36.7674H29.7365V29.8511H39.6593V31.44H31.7304V35.1941H39.7683V36.7674Z" fill="#222222"></path>
+                    <path class="color text" d="M27.0339 37.3434H14.1047V35.7545H19.5724V33.8696H21.5351V35.7545H27.0339V37.3434ZM21.5663 29.5547C21.5663 30.1207 21.7454 30.6555 22.1037 31.1592C22.4671 31.6577 23.0072 32.086 23.7237 32.4443C24.4455 32.8026 25.3204 33.044 26.3485 33.1687L25.5852 34.7108C24.4013 34.5343 23.3758 34.2071 22.5087 33.7294C21.6467 33.2465 20.9873 32.6468 20.5304 31.9303C20.0734 32.6468 19.4114 33.2465 18.5443 33.7294C17.6823 34.2123 16.6594 34.5395 15.4755 34.7108L14.7746 33.1687C15.7819 33.044 16.6438 32.8 17.3604 32.4365C18.0769 32.0731 18.6196 31.6395 18.9882 31.1358C19.3569 30.6322 19.5412 30.1051 19.5412 29.5547V29.0874H21.5663V29.5547ZM25.4606 43.0291H23.4823V39.8825H15.5378V38.3403H25.4606V43.0291Z" fill="#222222"></path>
+                    <path class="color text" d="M11.683 31.4241C11.683 32.2289 11.6726 32.9325 11.6518 33.5348C11.6362 34.132 11.5843 34.8278 11.496 35.6222C11.413 36.4115 11.2832 37.2708 11.1066 38.2002L9.11272 37.9977C9.35157 36.8139 9.50474 35.7494 9.57225 34.8044C9.63975 33.8594 9.67869 32.8105 9.68908 31.6578H1.33965V30.0845H11.683V31.4241ZM12.9292 41.3001H0V39.6801H4.62646V34.8044H6.60477V39.6801H12.9292V41.3001Z" fill="#222222"></path>
+                    <defs>
+                    <clipPath id="clip0_375_20003">
+                    <rect width="162" height="17.945" fill="white" transform="translate(0 0.939453)"></rect>
+                    </clipPath>
+                    </defs>
+                </svg>
+            </a>
+            <nav class="gnb">
+                <ul>
+                    <li class="menu100">
+                        <a href="/dataset/datasetList/list?pn=1">데이터 찾기</a>
+                    </li>
+                    <li class="menu200">
+                        <a href="/portal/traffic/trafficByIc">시각화 자료</a>
+                    </li>
+                    <li class="menu300">
+                        <a href="/openapi/intro/introduce01">OpenAPI 활용</a>
+                    </li>
+                    <li class="menu400">
+                        <a href="/bbs/list?pn=1">참여 & 소통</a>
+                    </li>
+                    <li class="menu500">
+                        <a href="/portal/guide/guide">이용안내</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="right_menu">
+                <button type="button" class="search_open btn_gray">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10.2636 20.526C12.5407 20.5255 14.7521 19.7632 16.5458 18.3605L22.1853 24L23.9993 22.186L18.3598 16.5465C19.7633 14.7526 20.526 12.5407 20.5266 10.263C20.5266 4.60423 15.9224 0 10.2636 0C4.60484 0 0.000610352 4.60423 0.000610352 10.263C0.000610352 15.9217 4.60484 20.526 10.2636 20.526ZM10.2636 2.56575C14.5086 2.56575 17.9608 6.01796 17.9608 10.263C17.9608 14.508 14.5086 17.9602 10.2636 17.9602C6.01857 17.9602 2.56636 14.508 2.56636 10.263C2.56636 6.01796 6.01857 2.56575 10.2636 2.56575Z" fill="white"/>
+                    </svg>
+                </button>
+                <button type="button" class="sitemap_open btn_primary">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M20 18H24C25.1046 18 26 18.8954 26 20V24C26 25.1046 25.1046 26 24 26H20C18.8954 26 18 25.1046 18 24V20C18 18.8954 18.8954 18 20 18Z" fill="white"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M8 18H12C13.1046 18 14 18.8954 14 20V24C14 25.1046 13.1046 26 12 26H8C6.89543 26 6 25.1046 6 24V20C6 18.8954 6.89543 18 8 18Z" fill="white"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M20 6H24C25.1046 6 26 6.89543 26 8V12C26 13.1046 25.1046 14 24 14H20C18.8954 14 18 13.1046 18 12V8C18 6.89543 18.8954 6 20 6Z" fill="white"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M8 6H12C13.1046 6 14 6.89543 14 8V12C14 13.1046 13.1046 14 12 14H8C6.89543 14 6 13.1046 6 12V8C6 6.89543 6.89543 6 8 6Z" fill="white"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+	</header>
+	
+	<div class="lnb_wrap">
+        <div class="wrapper">
+        	<div class="inner menu100">
+                <div class="left_tit">
+                    <span class="tit">데이터 찾기</span>
+                    <p>한국도로공사의 각종 데이터를 소개합니다.</p>
+                </div>
+                <div class="lnb">
+                </div>
+            </div>
+            <div class="inner menu200">
+                <div class="left_tit">
+                    <span class="tit">시각화 자료</span>
+                    <p>한국도로공사의 각종 시각화자료를 소개합니다.</p>
+                </div>
+                <div class="lnb">
+                </div>
+            </div>
+            <div class="inner menu300">
+                <div class="left_tit">
+                    <span class="tit">OpenAPI 활용</span>
+                    <p>한국도로공사의 각종 OpenAPI 활용을 소개합니다.</p>
+                </div>
+                <div class="lnb">
+                </div>
+            </div>
+            <div class="inner menu400">
+                <div class="left_tit">
+                    <span class="tit">참여 & 소통</span>
+                    <p>한국도로공사의 정보를 공유합니다.</p>
+                </div>
+                <div class="lnb">
+                </div>
+            </div>
+            <div class="inner menu500">
+                <div class="left_tit">
+                    <span class="tit">이용안내</span>
+                    <p>한국도로공사의 각종 이용안내입니다.</p>
+                </div>
+                <div class="lnb">
+                	<div class="box">
+                        <ul>
+                             <li>
+                                <a href="/portal/guide/guide">이용안내</a>
+                            </li>
+                            <li>
+                                <a href="/portal/guide/publicDataPolicy">공공데이터 이용정책</a>
+                            </li>
+                            <li>
+                                <a href="/portal/guide/copyRightPolicy">저작권 정책</a>
+                            </li>
+                            <!-- <li>
+                                <a href="/portal/guide/webAccess">웹접근성 인증마크</a>
+                            </li> -->
+                            <li>
+                                <a href="/portal/guide/useSite">홈페이지 이용약관</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="box">
+                        <ul>
+                        	<li>
+                			 	<a href="/guidedown/user_manual_new.pdf">매뉴얼 다운로드</a>
+                			</li>
+                        </ul>
+                    </div>
+                    <!-- <div class="box">
+                        <ul>
+                            <li>
+                                <a href="/portal/guide/useSite">홈페이지 이용약관</a>
+                            </li>
+                        </ul>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    
+        <!-- 모바일 메뉴 끝 -->
+    
+    
+<!--      <div class="search_pop">
+        <div class="bg"></div>
+        <div class="inner">
+        	<form name = "dataListVO" action = "/dataset/datasetList/list">
+	            <div class="box">
+	                <input type="text" name = "KeyWord" placeholder="어떤 데이터를 찾으시나요?" autocomplete = "off" />
+	                <button type="button" type="submit">
+	                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+	                        <path d="M31.09 29.3252L35.9725 34.2052C36.2002 34.441 36.3261 34.7567 36.3233 35.0845C36.3205 35.4122 36.189 35.7257 35.9572 35.9575C35.7255 36.1892 35.412 36.3207 35.0842 36.3235C34.7565 36.3264 34.4407 36.2004 34.205 35.9727L29.3225 31.0902C26.1319 33.8238 22.0065 35.2154 17.812 34.9729C13.6175 34.7305 9.67995 32.8728 6.82558 29.7898C3.97121 26.7067 2.42191 22.638 2.50277 18.4373C2.58363 14.2365 4.28837 10.2304 7.25927 7.25952C10.2302 4.28861 14.2363 2.58387 18.437 2.50301C22.6377 2.42215 26.7065 3.97146 29.7895 6.82583C32.8726 9.6802 34.7302 13.6177 34.9727 17.8122C35.2151 22.0067 33.8236 26.1321 31.09 29.3227V29.3252ZM18.75 32.5002C22.3967 32.5002 25.8941 31.0515 28.4727 28.4729C31.0513 25.8943 32.5 22.3969 32.5 18.7502C32.5 15.1035 31.0513 11.6061 28.4727 9.02748C25.8941 6.44886 22.3967 5.0002 18.75 5.0002C15.1032 5.0002 11.6059 6.44886 9.02724 9.02748C6.44862 11.6061 4.99996 15.1035 4.99996 18.7502C4.99996 22.3969 6.44862 25.8943 9.02724 28.4729C11.6059 31.0515 15.1032 32.5002 18.75 32.5002Z" fill="#225AC6"/>
+	                    </svg>
+	                </button>
+	            </div>
+	         </form>
+        </div>
+    </div> -->
+    <form name = "dataset" id = "dataset" action = "/dataset/datasetList/list">
+	    <div class="search_pop">
+	        <div class="bg"></div>
+	        <div class="inner">
+	            <div class="box">
+	            	
+	                <input type="text"id="KeyWord1" name = "KeyWord" placeholder="어떤 데이터를 찾으시나요?" autocomplete="off"/>
+	                <button type="button" type="submit" onclick= "javascript:submitForm();">
+	                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+	                        <path d="M31.09 29.3252L35.9725 34.2052C36.2002 34.441 36.3261 34.7567 36.3233 35.0845C36.3205 35.4122 36.189 35.7257 35.9572 35.9575C35.7255 36.1892 35.412 36.3207 35.0842 36.3235C34.7565 36.3264 34.4407 36.2004 34.205 35.9727L29.3225 31.0902C26.1319 33.8238 22.0065 35.2154 17.812 34.9729C13.6175 34.7305 9.67995 32.8728 6.82558 29.7898C3.97121 26.7067 2.42191 22.638 2.50277 18.4373C2.58363 14.2365 4.28837 10.2304 7.25927 7.25952C10.2302 4.28861 14.2363 2.58387 18.437 2.50301C22.6377 2.42215 26.7065 3.97146 29.7895 6.82583C32.8726 9.6802 34.7302 13.6177 34.9727 17.8122C35.2151 22.0067 33.8236 26.1321 31.09 29.3227V29.3252ZM18.75 32.5002C22.3967 32.5002 25.8941 31.0515 28.4727 28.4729C31.0513 25.8943 32.5 22.3969 32.5 18.7502C32.5 15.1035 31.0513 11.6061 28.4727 9.02748C25.8941 6.44886 22.3967 5.0002 18.75 5.0002C15.1032 5.0002 11.6059 6.44886 9.02724 9.02748C6.44862 11.6061 4.99996 15.1035 4.99996 18.7502C4.99996 22.3969 6.44862 25.8943 9.02724 28.4729C11.6059 31.0515 15.1032 32.5002 18.75 32.5002Z" fill="#225AC6"/>
+	                    </svg>
+	                </button>
+	               
+	            </div>
+	        </div>
+	    </div>   
+	</form>
+     <div class="sitemap_pop">
+        <div class="head">
+            <button type="button" class="btn_close">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M0.000107741 21.5383L21.4664 0.0720761L23.863 2.46875L2.39678 23.935L0.000107741 21.5383Z" fill="white"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M2.53369 0.0706644L23.9999 21.5369L21.6033 23.9336L0.137016 2.46734L2.53369 0.0706644Z" fill="white"/>
+                </svg>
+            </button>
+        </div>
+        <div class="inner scroll_custom">
+            <div class="cont">
+                <div class="logo">
+                    <img src= /img/logo_white.svg alt="로고" />
+                </div>
+                <ul class = "sitemapUl">
+                    <li>
+                        <span class="depth_01">데이터 찾기</span>
+                        <ul class="depth_02" >
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="depth_01">시각화 자료</span>
+                        <ul class="depth_02">    
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="depth_01">OpenAPI 활용</span>
+                        <ul class="depth_02">
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="depth_01">참여 & 소통</span>
+                        <ul class="depth_02">
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="depth_01">이용안내</span>
+                        <ul class="depth_02">
+                            <li>
+                                <a href="/portal/guide/guide">이용안내</a>
+                            </li>
+                            <li>
+                                <a href="/portal/guide/publicDataPolicy">공공데이터 이용정책</a>
+                            </li>
+                            <li>
+                                <a href="/portal/guide/copyRightPolicy">저작권 정책</a>
+                            </li>
+                            
+                            <li>
+                                <a href="/portal/guide/useSite">홈페이지 이용약관</a>
+                            </li>
+                        	<li>
+                			 	<a href="/guidedown/user_manual_new.pdf">매뉴얼 다운로드</a>
+                			</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="mo_snb none" id="mobDiv" >
+    	<div>
+	    	<button type="button" class="depth_01" id= "selectMobMenu1" >
+	    	</button>
+			<ul class="depth_02 mob" id= "mobMenu1">
+	 			<li class="menu_01">
+	 				<a href="/dataset/datasetList/list?pn=1">데이터 찾기</a>
+                 </li>
+                 <li class="menu_02">
+                 	<a href="/portal/traffic/trafficByIc"onclick ="showMenu('200')">시각화 자료</a>
+                 </li>
+                 <li class="menu_03">
+                 	<a href="/openapi/intro/introduce01"onclick ="showMenu('300')">OpenApi 활용</a>
+                 </li>
+                 <li class="menu_04">
+                 	<a href="/bbs/list?pn=1"onclick ="showMenu('400')">참여 & 소통</a>
+                 </li>
+                 <li class="menu_05">
+                 	<a href="/portal/guide/guide"onclick ="showMenu('500')">이용안내</a>
+                 </li>
+	        </ul>
+    	</div>
+         <div id ="mobMenu2">
+            <button type="button" class="depth_01" id= "selectMobMenu2">
+             </button>
+            <ul class="depth_02 mob" id= "mobMenu2_current">
+            </ul>
+            <ul class="depth_02 none" id= "mobMenu2_100">
+            </ul>
+            <ul class="depth_02 none" id= "mobMenu2_200">
+            </ul>
+            <ul class="depth_02 none" id= "mobMenu2_300">
+            </ul>
+            <ul class="depth_02 none" id= "mobMenu2_400">
+            </ul>
+            <ul class="depth_02 none" id= "mobMenu2_500">
+            	 <li>
+            	 	<a href="/portal/guide/guide">이용안내</a>
+                 </li>
+                 <li>
+                 	<a href="/portal/guide/publicDataPolicy">공공데이터 이용정책</a>
+                 </li>
+                 <li>
+                 	<a href="/portal/guide/copyRightPolicy">저작권 정책</a>
+                 </li>
+                 
+                 <li>
+                 	<a href="/portal/guide/useSite">홈페이지 이용약관</a>
+                 </li>
+				<li>
+					<a href="/guidedown/user_manual_new.pdf">매뉴얼 다운로드</a>
+				</li>
+            </ul>
+         </div>
+         <div id ="mobMenu3" class = "none">
+         	 <button type="button" class="depth_01" id= "selectMobMenu3">
+         	 </button>
+                <ul class="depth_02 mob" id= "mobMenu4" style="overflow: hidden; display: block;">
+                </ul>
+            </div>
+        </div>                
+    
+    
+    <div class="h_container">
+        <div class="layout_wrap">
+            <div class="wrapper">
+    
+				
+
+
+
+
+<div class="h_snb_wrap">
+    <div class="head none" id="menu_h2_100">
+        <h1>데이터 찾기</h1>
+    </div>
+    <div class="menu_list none" id="menu_list_100">
+	    <div class="ul_level_1 none" id="sub_leftmenu_100">
+	    </div>
+    </div>
+    
+    <div class="head none" id="menu_h2_200">
+        <h1>시각화 자료</h1>
+    </div>
+    <div class="menu_list none" id="menu_list_200">
+	    <div class="ul_level_1 none" id="sub_leftmenu_200">
+	    </div>
+    </div>
+    
+    <div class="head none" id="menu_h2_300">
+        <h1>OpenAPI</h1>
+    </div>
+    <div class="menu_list none" id="menu_list_300">
+    	<div class="box">
+    		<nav class="h_snb">
+	    		<ul id="sub_leftmenu_300">
+	    		</ul>
+    		</nav>
+    	</div>
+    </div>
+    
+    <div class="head none" id="menu_h2_400">
+        <h1>참여 & 소통</h1>
+    </div>
+    <div class="menu_list none" id="menu_list_400">
+    	<div class="box">
+    		<nav class="h_snb">
+	    		<ul id="sub_leftmenu_400">
+	    		</ul>
+    		</nav>
+    	</div>
+    </div>
+   <!-- 이용안내 - leftGuide.jsp -->
+    
+</div>
+
+
+
+
+
+<script type="text/javascript">
+//<![CDATA[
+	function getLeftMenuList() {
+		$.ajax({
+			data: {
+				'main_menu':''
+				, 'sub_menu':''
+				},
+			dataType: 'json',						//전송받을 타입
+			type: 'POST',							//전송 방식
+			//async:false,
+			url: '/portal/comm/getMenuList;jsessionid=1lIYBpxx5lHzO6UhHG25iWMoWA1MIKwXvOgDL8O8t01QKlIhTAZye6htdyuWxnXj.tclapwas1_servlet_openoasis',
+			success: function(D) {
+				setTimeout(function(){
+					makeLeftMenuTab(D);
+					//2024.11.19 김지은 추가
+					var currentUrl = window.location.href;
+					$('a').each(function(){
+						if(currentUrl.indexOf($(this).attr('href')) > -1){
+							$(this).parents("li").addClass("active");
+							$(this).addClass('active');
+							$(this).parents("ul").slideDown(0);
+						}
+					});
+					
+// 					// 2024.11.03 한태상 추가
+// 					var a = $("a[href='"+action+"']");
+//  					$(a).parents("li").addClass("active");			
+// 					$(a).addClass("active");
+// 					$(a).parents("ul").slideDown(0);
+				}, 1);
+			},
+			error: function(D) {
+				
+			}
+		});		
+	}
+	
+	function showCurrentMenuTab(mmu) {
+		$("#sub_leftmenu_" + mmu).removeClass("none");
+		$("#menu_h2_" + mmu).removeClass("none");
+		$("#menu_list_" + mmu).removeClass("none");	// <-	1011 개선사업 정유경 추가
+		
+		if(mmu == "300") $("#sub_leftmenu_api").removeClass("none");
+		else if(mmu == "400"){
+			$("#sub_leftmenu_dictionary").removeClass("none");
+			$("#sub_leftmenu_develope").removeClass("none");
+			$("#sub_leftmenu_api").removeClass("none");
+		}
+	}
+
+	function makeLeftMenuTab(D) {
+		var level4Open = "F";
+		var level4OpenCode = "";
+		var level4MenuCode = "";
+
+		for(var i in D) {
+			
+			
+			var row = D[i];
+			var rowStr = "";
+			var grandPaMenu = "";
+			var menuCd = row.menuCd;
+			var menuNm = row.menuNm;
+			var menuLevel = row.menuLevel;
+			var parentMenuCd = row.parentMenuCd;
+			var cssClassNm = row.cssClassNm;
+			var jsps = row.jsps;
+			var childCnt = row.childCnt;
+			
+			if (menuLevel == "2") {
+				if (childCnt != "0") {
+					if (menuCd == "100_4") { //데이터-서비스유형별 (1010 개선사업 정유경)
+						//rowStr = "<li id='leftmenu_" + menuCd + "' class='li_level_2 category cateline'><a href='"+g_contextPath+ row.url + "'><span>" + menuNm + "</span></a><ul id='sub_leftmenu_" + menuCd + "' class='ul_level_2'></ul></li>";
+						rowStr ="<div class='box'><div id='leftmenu_" + menuCd + "' class='tit li_level_2 category cateline tit'><a href='"+g_contextPath+ row.url + "'><span>" + menuNm + "</span></a></div><nav class='h_snb'><ul id='sub_leftmenu_" + menuCd + "' class='ul_level_2'></ul></nav></div>";
+					}else {  //데이터-업무분류별 및 타메뉴 2Level (1010 개선사업 정유경)
+						//rowStr = "<li id='leftmenu_" + menuCd + "' class='li_level_2 cateline'><a href='"+g_contextPath+row.url + "'><span>" + menuNm + "</span></a><ul id='sub_leftmenu_" + menuCd + "' class='ul_level_2'></ul></li>";
+						rowStr = "<div class='box'><div id='leftmenu_" + menuCd + "' class='li_level_2 cateline tit'><a href='"+g_contextPath+row.url + "'><span>" + menuNm + "</span></a></div><nav class='h_snb'><ul id='sub_leftmenu_" + menuCd + "' class='ul_level_2'></ul></nav></div>";
+					}
+				} else {
+					//rowStr = "<li id='leftmenu_" + menuCd + "'><a href='"+g_contextPath + row.url + "'><span>" + menuNm + "</span></a></li>";
+					//rowStr = "<div id='leftmenu_" + menuCd + "'><a href='"+g_contextPath + row.url + "'><span>" + menuNm + "</span></a></div>";
+				//	rowStr = "<div class='box'><div id='leftmenu_" + menuCd + "'><a href='"+g_contextPath + row.url + "'><span>" + menuNm + "</span></a></div><nav class='h_snb'><ul id='sub_leftmenu_" + menuCd + "></ul></nav></div>";
+					rowStr = "<li><a href='"+g_contextPath + row.url + "'><span class='subject'>" + menuNm + "</span></a></li>";
+					
+				}
+				
+				$("#sub_leftmenu_" + parentMenuCd).append(rowStr).trigger("create");
+			}
+			
+			if (menuLevel == "3") {
+				if (parentMenuCd == "100_2") {
+					var alt = '';
+					if(cssClassNm == 'traffic'){
+						alt = '교통';
+					}else if(cssClassNm == 'build'){
+						alt = '건설';
+					}else if(cssClassNm == 'manage'){
+						alt = '유지관리';
+					}else if(cssClassNm == 'office'){
+						alt = '일반행정';
+					}else if(cssClassNm == 'toll'){
+						alt = '통행료';
+					}else if(cssClassNm == 'coffee'){
+						alt = '휴게소';
+					}else if(cssClassNm == 'data'){
+						alt = '융합 데이터';
+					}else if(cssClassNm == 'ai'){
+						alt = 'AI합습';
+					}
+					
+				//	if (childCnt != "0") {  //교통  + 유지관리
+				//		//rowStr = "<li id='leftmenu_" + menuCd + "' class='li_level_3 "+cssClassNm+"'><a href='#'><img src='"+g_contextPath+"/images/leftmenu_ico_"+cssClassNm+".png' alt='' /><span>" + menuNm + "</span></a><ul id='sub_leftmenu_" + menuCd + "' class='ul_level_3'></ul></li>";
+						rowStr = "<li id='leftmenu_" + menuCd + "' class='li_level_3 "+cssClassNm+"'><a href='#'><span class='subject'>" + menuNm + "</span></a><ul id='sub_leftmenu_" + menuCd + "' class='ul_level_3'></ul></li>";
+				//	}else{
+						//rowStr = "<li id='leftmenu_" + menuCd + "' class='li_level_3 "+cssClassNm+"'><a href='"+g_contextPath + row.url + "'><img src='"+g_contextPath+"/images/leftmenu_ico_"+cssClassNm+".png' alt='' /><span>" + menuNm + "</span></a></li>";
+						rowStr = "<li id='leftmenu_" + menuCd + "' class='li_level_3 "+cssClassNm+"'><a href='"+g_contextPath + row.url + "'><span class='subject'>" + menuNm + "</span><span class='num'></span></a></li>";		// 업무분류별 하위. 4 depth 없애면서 해당 라인만 사용 (1010 개선사업)
+				//	}
+					
+				
+					/* left메뉴 이미지 파일 시작 - 2016.12.18 정재윤 */		
+						}else if(parentMenuCd == "100_4"){
+						var alt = '';
+						if(cssClassNm == 'file'){
+							alt = 'File';
+						}else if(cssClassNm == 'link'){
+							alt = 'Link';
+						}else if(cssClassNm == 'api'){
+							alt = 'Api';
+						}else if(cssClassNm == 'filepur'){
+							alt = 'Filepur';
+						}
+					/* left메뉴 이미지 파일 끝 - 2016.12.18 정재윤 */			
+						
+				/* left메뉴 이미지 파일 시작 - 2016.12.18 정재윤 */		
+						if (childCnt != "0") {  //교통  + 유지관리			//사용안하는듯 ??? (1010 개선사업)
+							//rowStr = "<li id='leftmenu_" + menuCd + "' class='li_level_3 "+cssClassNm+"'><a href='#'><img src='"+g_contextPath+"/images/leftmenu_ico_"+cssClassNm+".png' alt=''/><span>" + menuNm + "</span></a><ul id='sub_leftmenu_" + menuCd + "' class='ul_level_3'></ul></li>";
+							rowStr = "<li id='leftmenu_" + menuCd + "' class='li_level_3 "+cssClassNm+"'><a href='#'><span class='subject'>" + menuNm + "</span><span class='num'></span></a><ul id='sub_leftmenu_" + menuCd + "' class='ul_level_3'></ul></li>";
+						}else{ //서비스유형별 하위 (1010 개선사업 정유경)
+							//rowStr = "<li id='leftmenu_" + menuCd + "' class='li_level_3 "+cssClassNm+"'><a href='"+g_contextPath + row.url + "'><img src='"+g_contextPath+"/images/leftmenu_ico_"+cssClassNm+".png' alt='' style='float:left;' /><span>" + menuNm + "</span></a></li>";
+							//rowStr = "<li id='leftmenu_" + menuCd + "' class='li_level_3 "+cssClassNm+"'><a href='"+g_contextPath + row.url + "'><span class='subject'>" + menuNm + "</span></a></li>";
+							// 2024.10.28 한태상 서비스 유형 카운트를 위해 span 추가 
+							rowStr = "<li id='leftmenu_" + menuCd + "' class='li_level_3 "+cssClassNm+"'><a href='"+g_contextPath + row.url + "'><span class='subject'>" + menuNm + "</span><span class='num'></span></a></li>";
+						}
+						}else{
+							
+				/* left메뉴 이미지 파일 끝 - 2016.12.18 정재윤 */				
+							
+							
+					
+					if (childCnt != "0") {
+						//rowStr = "<li id='leftmenu_" + menuCd + "' class='li_level_3'><a href='#'><span>" + menuNm + "</span></a><ul id='sub_leftmenu_" + menuCd + "' class='ul_level_3'></ul></li>";
+						//시각화자료-하위 3Level(4Level이 있는 경우 ex.교통량) - (1010 개선사업 정유경)
+						rowStr = "<li id='leftmenu_" + menuCd + "' class='li_level_3'><button type='button'><span class='subject'>" + menuNm + "</span></button><ul id='sub_leftmenu_" + menuCd + "' class='ul_level_3 depth_03'></ul></li>";
+					} else {
+						if (cssClassNm == null || cssClassNm == "") {
+							//시각화자료-하위 3Level(4Level이 없는 경우) - (1010 개선사업 정유경)
+							rowStr = "<li id='leftmenu_" + menuCd + "'><a href='"+g_contextPath + row.url + "'><span class='subject'>" + menuNm + "</span></a></li>";
+						} else {
+							if (cssClassNm.indexOf("^^")>0){
+								rowStr = "<li id='leftmenu_" + menuCd + "'><a href='"+g_contextPath + row.url + "'><em class='ion size-18 " + cssClassNm.split("^^")[0] + "'>" + cssClassNm.split("^^")[1] + "</em><span>" + menuNm + "</span></a></li>";
+							}else{
+								rowStr = "<li id='leftmenu_" + menuCd + "'><a href='"+g_contextPath + row.url + "'><span>" + menuNm + "2</span></a></li>";
+							}
+						}
+					}
+				}
+				
+				$("#sub_leftmenu_" + parentMenuCd).append(rowStr).trigger("create");
+			}
+			
+			if (menuLevel == "4") {
+			//추후 미사용으로 주석처리 (1010 개선사업 정유경)
+					//시각화자료-하위 4Level (1010 개선사업 정유경)
+					rowStr = "<li id='leftmenu_" + menuCd + "' class='li_level_4'><a href='"+g_contextPath + row.url + "'><span style='width:100%;'>" + menuNm + "</span></a></li>";
+			/*	}*/
+				
+				$("#sub_leftmenu_" + parentMenuCd).append(rowStr).trigger("create");
+				$("#sub_leftmenu_" + parentMenuCd).css("display", "none");
+				
+			}
+			if (jsps != null && jsps != "" && jsps.indexOf("view2;") >= 0) {
+				grandPaMenu = menuCd.substr(0, 3);
+				showCurrentMenuTab(grandPaMenu);
+				////$("#leftmenu_" + menuCd.substr(0, 3)).trigger( "create" );
+			}
+			
+		}
+	
+		var group_tr =$("#GROUP_TR").val();
+			          
+		if (level4Open == "T" && level4OpenCode != "" ){
+		
+			if(level4OpenCode.indexOf("100_") > -1 && group_tr != ""){
+
+				if($("#CATEGORY").val() == 'TR'){
+					level4OpenCode = "100_2_1";
+				}else if($("#CATEGORY").val() == 'RO'){
+					level4OpenCode="100_2_3";
+				}
+				$("#leftmenu_"+level4OpenCode).parents("li").addClass("active");			
+				$("#leftmenu_"+level4OpenCode).addClass("active");
+				$("#leftmenu_"+level4OpenCode).find(' > ul').slideDown(1);
+				$("#"+group_tr).attr("style", "background:none !important; color: #ff8a00 !important;");
+				
+			}else if(level4OpenCode.indexOf("200_") > -1) {
+				$("#leftmenu_"+level4OpenCode).parents("li").addClass("active");			
+				$("#leftmenu_"+level4OpenCode).addClass("active");
+				$("#leftmenu_"+level4OpenCode).find(' > ul').slideDown(1);
+				$("#leftmenu_" + level4MenuCode).find(" > a > span").attr("style", "background:none !important; color: #ff8a00 !important;");
+			}
+			
+		
+		} 
+		
+		$('li.li_level_3').click(function(){
+			if (!$(this).hasClass("active")) {	
+				$(".ul_level_3").slideUp(1);
+				$(".li_level_3").removeClass("active");
+				$(".li_level_2").removeClass("active");
+				
+				$(this).parents("li").addClass("active");			
+				$(this).addClass("active");
+				$(this).find(' > ul').slideDown(1);
+				//$(this).find(' > ul > li').addClass("active");
+				//setTimeout(function(){
+					//jQuery('#footer').css('overlow','auto');
+				//}, 100);
+			}
+		});
+		
+		var trident = navigator.userAgent.match(/Trident\/(\d)/i);
+
+		if(trident != null && trident == 'Trident/4,4'){
+			if($("#GROUP_TR").val() != ''){
+				
+				$(".li_level_2").removeClass("active");
+				setTimeout(function(){
+					$(".li_level_2").addClass("active");
+					jQuery('#footer').css('overlow','auto');
+				}, 100);
+			}
+			
+		} 
+		
+		//2024.10.21 정유경 추가 - datasetList 건수 조회 호출
+		getDataListCnt();
+		
+		
+	}
+
+	$("#leftMenu").ready(function() {
+		getLeftMenuList();
+		
+	});
+
+// 2024.12.03 정유경 수정 (title 공통 사용을 위한 주석 처리(추후 사용시 tag 명 맞춰야함))
+//	$("#sub_title").ready(function() {
+//		document.title = $("#sub_title > span > strong").text();
+//	});
+	
+	/* 20214.10.21 정유경 추가 - datasetList 건수 조회 */
+	function getDataListCnt() {
+		$.ajax({
+			data: {
+				},
+			dataType: 'json',						//전송받을 타입
+			type: 'POST',							//전송 방식
+			//async:false,
+			url: '/dataset/datasetList/getDataListCnt;jsessionid=1lIYBpxx5lHzO6UhHG25iWMoWA1MIKwXvOgDL8O8t01QKlIhTAZye6htdyuWxnXj.tclapwas1_servlet_openoasis',
+			success: function(res) {
+				setTimeout(function(){
+					for(var i=1; i<=8; i++){
+						$li = $("#leftmenu_100_2_" + i);
+						$span = $li.find(".num");
+						
+						//2024.10.28 한태상 서비스 유형별 카운트 추가
+						$li2 = $("#leftmenu_100_4_" + i);
+						$span2 = $li2.find(".num");
+							
+						switch (i){
+						case 1:
+							$span.append("(" + res[0].tr_CNT + ")");
+							break;
+						case 2:
+							$span.append("(" + res[0].co_CNT + ")");
+							break;
+						case 3:
+							$span.append("(" + res[0].ro_CNT + ")");
+							break;
+						case 4:
+							$span.append("(" + res[0].ma_CNT + ")");
+							break;
+						case 5:
+							$span.append("(" + res[0].to_CNT + ")");
+							break;
+						case 6:
+							$span.append("(" + res[0].bu_CNT + ")");
+							break;
+						case 7:
+							$span.append("(" + res[0].fu_CNT + ")");
+							break;
+						case 8:
+							$span.append("(" + res[0].ai_CNT + ")");
+							break;
+						}
+						
+						//2024.10.28 한태상 서비스 유형별 카운트 추가
+						switch (i){
+						case 1:
+							$span2.append("(" + res[0].file_CNT + ")");
+							break;
+						case 2:
+							$span2.append("(" + res[0].openapi_CNT + ")");
+							break;
+						case 3:
+							$span2.append("(" + res[0].org_CNT + ")");
+							break;
+						case 4:
+							$span2.append("(" + res[0].lod_CNT + ")");
+							break;
+						}
+					}
+					
+				}, 1);
+			},
+			error: function(D) {
+				
+			}
+		});		
+	}
+	
+	
+//]]>
+</script>
+    
+				<!-- 2024.10.18 박갑귀 : 퍼블 변경 주석처리 -->
+				<!-- content wrap start -->
+				<div class="content_wrap">
+                    <div class="breadcrumb">
+                        <ul>
+                            <li>
+                                <a href="/" class="home">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M5 21.9998H19C19.5304 21.9998 20.0391 21.7891 20.4142 21.414C20.7893 21.039 21 20.5303 21 19.9998V10.9998C21.0008 10.8682 20.9755 10.7377 20.9258 10.6159C20.876 10.4941 20.8027 10.3833 20.71 10.2898L12.71 2.28982C12.5226 2.10357 12.2692 1.99902 12.005 1.99902C11.7408 1.99902 11.4874 2.10357 11.3 2.28982L3.3 10.2898C3.20551 10.3824 3.13034 10.4929 3.07885 10.6148C3.02735 10.7366 3.00055 10.8675 3 10.9998V19.9998C3 20.5303 3.21071 21.039 3.58579 21.414C3.96086 21.7891 4.46957 21.9998 5 21.9998ZM10 19.9998V14.9998H14V19.9998H10ZM5 11.4098L12 4.40982L19 11.4098V19.9998H16V14.9998C16 14.4694 15.7893 13.9607 15.4142 13.5856C15.0391 13.2105 14.5304 12.9998 14 12.9998H10C9.46957 12.9998 8.96086 13.2105 8.58579 13.5856C8.21071 13.9607 8 14.4694 8 14.9998V19.9998H5V11.4098Z" fill="#0F2A86"/>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li>
+                                <span>데이터 찾기</span>
+                            </li>
+                            <li>
+                                <span>데이터 목록</span>
+                            </li>
+                            <li>
+                                <span>데이터 다운로드</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="page_head">
+                        <h2>데이터 다운로드</h2>
+                    </div>
+
+                    <div class="data_view">
+                        <div class="head">
+                            <h3>고속도로 출입시설 위치정보(FILE)</h3>
+                            <img src="/img/logo_emblem.svg" class="emblem" alt="로고"/>
+                        </div> 
+                        
+						<div class="service_info_box">
+							<div class="sub_tit">
+								<h3 class="tit">
+									<svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M19 3.5H5C3.897 3.5 3 4.397 3 5.5V19.5C3 20.603 3.897 21.5 5 21.5H19C20.103 21.5 21 20.603 21 19.5V5.5C21 4.397 20.103 3.5 19 3.5ZM11.067 16.981L7.293 13.207L8.707 11.793L10.933 14.019L15.232 8.86L16.769 10.14L11.067 16.981Z" fill="#225AC6"/>
+									</svg>
+									설명
+								</h3>
+							</div>
+	                        <div class="layout_box">
+								<div class="cont">
+									<p>
+										본 데이터는 한국도로공사에서 관리하는 고속도로 출입시설(IC 및 JCT)의 위치정보를 수록한 자료이다. 주요 항목에는 출입시설 코드와 명칭, 노선번호, 노선명, 그리고 위치를 나타내는 X좌표값 및 Y좌표값이 포함되어 있다. 해당 데이터는 출입시설의 정밀한 공간 정보를 제공함으로써 고속도로 진입 및 분기 지점의 구조 파악에 활용할 수 있다. 또한 교통관리 시스템, 내비게이션 서비스, 도로 인프라 계획 수립, 사고 대응 시스템 등 다양한 분야에서 기초자료로 사용 가능하다. 본 데이터를 통해 출입시설 간 거리 계산, 경로 최적화, 고속도로 접근성 분석 등 공간기반 분석 수행이 가능하며, 공공 및 민간 부문의 정책 수립 및 서비스 개발에 기여할 수 있다.
+									</p>
+								</div>
+							</div>
+						</div>                       
+                        
+                        <div class="table_content">
+                            <div class="table_wrap">
+                                <table class="table_col">
+                                    <caption>File의 기본 상세 정보 입니다.</caption>
+
+                                    <colgroup>
+                                    <col class="th" />
+                                    <col />
+                                    <col class="th" />
+                                    <col />
+                                    </colgroup>
+                                    
+                                    <tbody>
+                                        <tr>
+                                            <th>자료 제공기간</th>
+                                            <td colspan="3">
+                                                <span>2023년 이후</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>자료 집계주기</th>
+                                            <td>
+                                                <span>1개월</span>
+                                            </td>
+                                            <th>자료 제공주기</th>
+                                            <td>
+                                                <span>1개월</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>자료 구조</th>
+                                            <td colspan="3">
+                                                <span>1개월</span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="down_sel">
+                            <div class="sub_tit">
+                                <h3 class="tit">
+                                    <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M19 9.5H15V3.5H9V9.5H5L12 17.5L19 9.5ZM4 19.5H20V21.5H4V19.5Z" fill="#225AC6"/>
+                                    </svg>
+                                    다운로드 자료 선택
+                                </h3>
+                            </div>
+                            
+	                            
+                            
+                            <div class="table_search">
+                                <div>
+                                    <span>집계주기</span>
+                                    <div class="select_box w120">
+                                        <!-- 2024.10.15 박갑귀 추가 -->
+                                        <select name="collectCycle" id="collectCycle" onchange="setSupplyCycle();">
+										<!-- <select style="width:80px;" name="collectCycle" id="collectCycle" onchange="setSupplyCycle();"> 2020.03.13 수정 -->
+											
+												<option value='05'>1달</option>
+											
+										</select>
+                                    </div>
+                                </div>
+                                <div>
+<!--                                     <span>일자</span> -->
+                                    <div id="divSupplyTerm" class="radio_wrap">
+                        			</div>
+                        			<!-- 1일 -->
+                        			<div class="combo_box" id="calDay" style="display: none;">
+	                                    <div class="input_box w200" >
+	                                        <input type="text" class="date" id="dataSupplyDate" name="dataSupplyDate" maxlength="10" size="10" readonly="readonly"/>
+	                                    </div>
+                                    </div>
+                                    
+                                    <!-- 1개월 -->
+                                    <div id="calMonth" class="combo_box" style="display: none;">
+										<div></div>
+										<div class="select_box w120">
+											<select id="dataSupplyYear"  name="dataSupplyYear" title="년도 선택" onchange="setMonthSelect();"></select>
+										</div>
+										<span>년</span>
+										<div class="select_box w100">
+											<select id="dataSupplyMonth" name="dataSupplyMonth" title="월 선택"></select>
+										</div>
+										<span>월</span>
+		                            </div>
+		                            
+									<!-- 1년 -->
+                        			<div class="combo_box" id="calYear" style="display: none;">
+	                        			<div class="select_box w120">
+											<select id="dataSupplyYearY" name="dataSupplyYearY" title="년도 선택"></select>
+										</div>
+										<span>년</span>
+									</div>
+									
+									<div class="combo_box" style="display:none;" id="calQuater">
+										<div class="select_box w120">
+											<select id="dataSupplyYearQ" name="dataSupplyYearQ" title="년도 선택" onchange="setQuaterSelect();"></select>
+										</div>
+										<span>년</span>
+										<div class="select_box w100">
+											<select id="dataSupplyQuater" name="dataSupplyQuater" title="분기 선택"></select>
+										</div>
+										<span>분기</span>
+                        			</div>
+                                </div>
+                                <button type="button" class="btn btn_primary" id="btnSearch">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M10 18C11.775 17.9996 13.4988 17.4054 14.897 16.312L19.293 20.708L20.707 19.294L16.311 14.898C17.405 13.4997 17.9996 11.7754 18 10C18 5.589 14.411 2 10 2C5.589 2 2 5.589 2 10C2 14.411 5.589 18 10 18ZM10 4C13.309 4 16 6.691 16 10C16 13.309 13.309 16 10 16C6.691 16 4 13.309 4 10C4 6.691 6.691 4 10 4Z" fill="white"/>
+                                    </svg>
+                                	    검색
+                                </button>
+                            </div>
+                        </div>
+
+							<div class="table_content">
+								<div class="table_head">
+									<div class="sub_tit">
+										<h3 class="tit">다운로드 자료 정보</h3>
+									</div>
+								</div>
+								<div class="table_wrap">
+									<table class="table_col">
+										<caption>File의 기본 상세 정보의 날짜조회시 다운로드 자료 정보입니다.</caption>
+
+										<colgroup>
+											<col class="th" />
+											<col />
+											<col class="th" />
+											<col />
+										</colgroup>
+
+										<tbody>
+											<tr>
+												<th>기준일자</th>
+												<td><span id="standardDateFmt"></span></td>
+												<th>파일크기</th>
+												<td><span id="readableFileSize"></span></td>
+											</tr>
+											<tr>
+												<th>파일명</th>
+												<input type="hidden" id="downFileName" />
+												<td colspan="3">
+													<div class="file_name">
+														<span class="subject" id="outFileName"></span>
+														<ul class="notice">
+															<li>
+																<p>빵집, 7-Zip, 알집 등 파일을 호환 할 수 있는 프로그램을 설치하시기를 권장
+																	드립니다. (Windows 탐색기에서는 볼 수 없습니다.)</p>
+															</li>
+															<li>
+																<p>대용량(100MB 이상) 데이터의 경우 파일 다운로드 시작까지 시간이 걸립니다. 다운로드
+																	버튼 클릭 후 잠시만 기다려주세요.</p>
+															</li>
+														</ul>
+													</div>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+							<div class="table_head">
+								<div class="sub_tit">
+									<h3 class="tit">활용목적</h3>
+								</div>
+							</div>
+							<div class="layout_box" style="margin-top: 16px;">
+								<div class="form">
+									<div class="item">
+										<span class="tit2">소속</span>
+										<div class="select_box wfull">
+											<select id="deptName" name="deptName"">
+												<option value="">선택</option>
+						                        
+						                            <option value="0           ">중앙행정기관·공공기관</option>
+						                        
+						                            <option value="1           ">지방자치단체</option>
+						                        
+						                            <option value="2           ">공기업·준정부기관</option>
+						                        
+						                            <option value="3           ">민간기업·스타트업</option>
+						                        
+						                            <option value="4           ">대학교·연구기관</option>
+						                        
+						                            <option value="5           ">일반개인·학생</option>
+						                        
+											</select>
+										</div>
+										<span class="tit2">지역</span>
+										<div class="select_box wfull">
+											<select id="regionName" name="regionName">
+												<option value="">선택</option>
+						                        
+						                            <option value="KR-11       ">서울특별시</option>
+						                        
+						                            <option value="KR-26       ">부산광역시</option>
+						                        
+						                            <option value="KR-27       ">대구광역시</option>
+						                        
+						                            <option value="KR-28       ">인천광역시</option>
+						                        
+						                            <option value="KR-29       ">광주광역시</option>
+						                        
+						                            <option value="KR-30       ">대전광역시</option>
+						                        
+						                            <option value="KR-31       ">울산광역시</option>
+						                        
+						                            <option value="KR-41       ">경기도</option>
+						                        
+						                            <option value="KR-42       ">강원특별자치도</option>
+						                        
+						                            <option value="KR-43       ">충청북도</option>
+						                        
+						                            <option value="KR-44       ">충청남도</option>
+						                        
+						                            <option value="KR-45       ">전라북도</option>
+						                        
+						                            <option value="KR-46       ">전라남도</option>
+						                        
+						                            <option value="KR-47       ">경상북도</option>
+						                        
+						                            <option value="KR-48       ">경상남도</option>
+						                        
+						                            <option value="KR-49       ">제주특별자치도</option>
+						                        
+						                            <option value="KR-50       ">세종특별자치시</option>
+						                        
+											</select>
+										</div>
+										<span class="tit2">성별</span>
+										<div class="select_box wfull">
+											<select id="gender" name="gender">
+												<option value="">선택</option>
+						                        
+						                            <option value="0           ">남성</option>
+						                        
+						                            <option value="1           ">여성</option>
+						                        
+											</select>
+										</div>
+									</div>
+									<div class="item">
+										<span class="tit2">나이</span>
+										<div class="select_box">
+											<select id="userAgeName" name="userAgeName">
+												<option value="">선택</option>
+						                        
+						                            <option value="10          ">10대</option>
+						                        
+						                            <option value="20          ">20대</option>
+						                        
+						                            <option value="30          ">30대</option>
+						                        
+						                            <option value="40          ">40대</option>
+						                        
+						                            <option value="50          ">50대</option>
+						                        
+						                            <option value="60          ">60대 이상</option>
+						                        
+											</select>
+										</div>
+										<span class="tit2">활용목적</span>
+										<div class="select_box">
+											<select id="pouName" name="pouName">
+												<option value="">선택</option>
+						                        
+						                            <option value="0           ">연구 및 학술분석</option>
+						                        
+						                            <option value="1           ">서비스 및 앱 개발</option>
+						                        
+						                            <option value="2           ">정책 및 행정 활용</option>
+						                        
+						                            <option value="3           ">기업 비즈니스 마케팅 분석</option>
+						                        
+						                            <option value="4           ">교육 및 학습 목적</option>
+						                        
+						                            <option value="5           ">언론보도 또는 콘텐츠 제작</option>
+						                        
+											</select>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="btn_wrap">
+								<button type="button" class="btn btn_primary" id="fileDownload">
+									<svg width="25" height="24" viewBox="0 0 25 24" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12.5 16L16.5 11H13.5V4H11.5V11H8.5L12.5 16Z" fill="white" />
+                                        <path d="M20.5 18H4.5V11H2.5V18C2.5 19.103 3.397 20 4.5 20H20.5C21.603 20 22.5 19.103 22.5 18V11H20.5V18Z" fill="white" />
+                                    </svg>
+									다운로드
+								</button>
+								<a href="#" id="downloadList" class="btn btn_gray_line">목록</a>
+							</div>
+
+							<div class="table_content">
+								<div class="table_head">
+									<div class="sub_tit">
+										<h3 class="tit">샘플데이터</h3>
+									</div>
+								</div>
+								
+		                            <div class='table_wrap scroll_custom wide'><table class='table_02'><caption>샘플 데이터 입니다.</caption><thead><tr><th>IC/JC코드</th><th>IC/JC명</th><th>노선코드</th><th>노선명</th><th>X좌표값</th><th>Y좌표값</th></thead><tbody><tr><td><span>0010I00001</span></td><td><span>구서IC</span></td><td><span>10</span></td><td><span>경부선</span></td><td><span>129.09762</span></td><td><span>35.25071</span></td></tr><tr><td><span>0010I00003</span></td><td><span>양산IC</span></td><td><span>10</span></td><td><span>경부선</span></td><td><span>129.053314</span></td><td><span>35.378218</span></td></tr><tr><td><span>0010I00004</span></td><td><span>통도사IC</span></td><td><span>10</span></td><td><span>경부선</span></td><td><span>129.097021</span></td><td><span>35.498747</span></td></tr><tr><td><span>0010I00005</span></td><td><span>서울산IC</span></td><td><span>10</span></td><td><span>경부선</span></td><td><span>129.126636</span></td><td><span>35.553861</span></td></tr><tr><td><span>0010I00008</span></td><td><span>경주IC</span></td><td><span>10</span></td><td><span>경부선</span></td><td><span>129.187987</span></td><td><span>35.806331</span></td></tr></tbody></table></div>
+		                  		
+							</div>
+
+							<div>
+                            <div class="sub_tit">
+                                <h3 class="tit">
+                                    <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M20 5.5H10.414L8.707 3.793C8.61426 3.7 8.50406 3.62624 8.38273 3.57596C8.2614 3.52568 8.13134 3.49986 8 3.5H4C2.897 3.5 2 4.397 2 5.5V19.5C2 20.603 2.897 21.5 4 21.5H20C21.103 21.5 22 20.603 22 19.5V7.5C22 6.397 21.103 5.5 20 5.5Z" fill="#225AC6"/>
+                                    </svg>
+                                    연관데이터
+                                </h3>
+                            </div>
+                            
+                            
+			                    
+								
+								
+		                	
+                            
+                        </div>
+                    </div>
+                </div>
+				<!-- content wrap end -->
+				    
+    		</div>
+    	</div>
+    </div>
+        
+    <!-- footer area -->
+    
+<link rel="stylesheet" type="text/css" href="/css/style_dev.css;jsessionid=1lIYBpxx5lHzO6UhHG25iWMoWA1MIKwXvOgDL8O8t01QKlIhTAZye6htdyuWxnXj.tclapwas1_servlet_openoasis" />
+<div class="h_footer">
+	<div class="top">
+		<div class="wrapper">
+			<nav class="fnb">
+				<ul>
+					<li><a href="/portal/guide/guide;jsessionid=1lIYBpxx5lHzO6UhHG25iWMoWA1MIKwXvOgDL8O8t01QKlIhTAZye6htdyuWxnXj.tclapwas1_servlet_openoasis">이용가이드</a></li>
+					<li><a href="/portal/guide/publicDataPolicy;jsessionid=1lIYBpxx5lHzO6UhHG25iWMoWA1MIKwXvOgDL8O8t01QKlIhTAZye6htdyuWxnXj.tclapwas1_servlet_openoasis">공공데이터
+							이용정책</a></li>
+					<li><a href="/portal/guide/copyRightPolicy;jsessionid=1lIYBpxx5lHzO6UhHG25iWMoWA1MIKwXvOgDL8O8t01QKlIhTAZye6htdyuWxnXj.tclapwas1_servlet_openoasis">저작권
+							정책</a></li>
+					<li><a href="/portal/guide/useSite;jsessionid=1lIYBpxx5lHzO6UhHG25iWMoWA1MIKwXvOgDL8O8t01QKlIhTAZye6htdyuWxnXj.tclapwas1_servlet_openoasis">홈페이지
+							이용약관</a></li>
+					<li><a href="/guidedown/user_manual_new.pdf;jsessionid=1lIYBpxx5lHzO6UhHG25iWMoWA1MIKwXvOgDL8O8t01QKlIhTAZye6htdyuWxnXj.tclapwas1_servlet_openoasis">매뉴얼 다운로드</a></li>
+					
+				</ul>
+			</nav>
+			<div class="family_site">
+				<div class="sel_box">
+					<button type="button">
+						<span>관련사이트</span> <img src="/img/arrow_01.svg" alt="아이콘" />
+					</button>
+					<ul>
+						<li><a href="http://ex.co.kr/" target="_blank">ex 한국도로공사</a>
+						</li>
+						<li><a href="http://www.its.go.kr/" target="_blank">국가교통정보센터</a>
+						</li>
+						<li><a href="http://map.vworld.kr/map/maps.do"
+							target="_blank">V-World</a></li>
+						<li><a href="http://data.go.kr/" target="_blank">공공데이터포털</a>
+						</li>
+						<li><a href="http://data.seoul.go.kr/" target="_blank">서울
+								열린데이터광장</a></li>
+					</ul>
+				</div>
+			</div>
+
+		</div>
+	</div>
+	<div class="bottom">
+		<div class="wrapper">
+			<div class="info">
+				<img src="/img/logo.svg;jsessionid=1lIYBpxx5lHzO6UhHG25iWMoWA1MIKwXvOgDL8O8t01QKlIhTAZye6htdyuWxnXj.tclapwas1_servlet_openoasis" alt="ex 한국도로공사" />
+				<div class="inner">
+					<span>경상북도 김천시 혁신8로 77(율곡동, 한국도로공사)</span><br /> <span>컨텐츠
+						문의 <span>054-811-4418</span>
+					</span><br class="only_mb" /> <span>시스템 장애 문의 <span>070-8656-8771</span></span>
+					<p class="copyright">Copyright 2024. Korea Expressway
+						Corporation Service Co., Ltd. All Rights Reserved.</p>
+				</div>
+			</div>
+			<!-- <img src="/img/ft_logo_01.png" alt="웹접근성 인증마크" /> -->
+		</div>
+	</div>
+</div>
+
+
+<!-- 2024.11.14 한태상 추가 chatbot 시작 -->
+<div class="float_btn">
+	<div class="chat_bot">
+		<p>궁금하신 점이 있으신가요?</p>
+		<button type="button" class="chat_open"
+			onClick="javascript:chatOpen();">
+			<img src="/img/chat.svg" alt="챗봇 대화하기" />
+		</button>
+		<span class="new"></span>
+	</div>
+	<button type="button" class="go_top">
+		<img src="/img/go_top.svg" alt="맨 위로 이동" />
+	</button>
+</div>
+<div class="chat_box" style="width : 350px;">
+	<button type="button" class="btn_close">
+		<svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+			xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+				d="M7.13775e-05 14.3615L14.3109 0.0506549L15.9087 1.64844L1.59785 15.9593L7.13775e-05 14.3615Z"
+				fill="white" />
+                <path fill-rule="evenodd" clip-rule="evenodd"
+				d="M1.68904 0.044505L15.9999 14.3553L14.4021 15.9531L0.0912622 1.64229L1.68904 0.044505Z"
+				fill="white" />
+            </svg>
+	</button>
+	<div class="inner">
+		<div class="head">
+			<span class="tit">고속도로 공공데이터 <em class="blue">FAQ</em></span>
+		</div>
+		<div class="box scroll_custom" id="scroll">
+			<div class="chat_list">
+				<ul>
+					<li>
+						<div class="profile">
+							<img src="/img/chat_profile.svg" alt="챗봇 대화하기" />
+						</div>
+						<div class="cont" id="chatboxCtgrDiv">
+							<p class="bubble">
+								안녕하세요? FAQ 안내봇입니다. <br/>카테고리를 선택해주세요.
+							</p>
+							<div class="sel_opt">
+								<ul id="chatbotctgr"></ul>
+							</div>
+						</div>
+					</li>
+					<li class="user" id="userAnswer1">
+					</li>
+					<li id="question1li">
+						<div class="profile" id="profile2" style="display: none;">
+							<img src="/img/chat_profile.svg" alt="챗봇 대화하기" />
+						</div>
+						<div class="cont" id="question1Div">
+						</div>
+					</li>
+					<li class="user" id="userAnswer2">
+					</li>
+					<li>
+						<div class="profile" id="profile3" style="display: none;">
+							<img src="/img/chat_profile.svg" alt="챗봇 대화하기" />
+						</div>
+						<div class="cont" id="question2Div" style="display: none;">
+							<!-- 2024.12.04 조현웅 wrap:hard로 보낸 데이터 줄바꿈 반영 -->
+							<p class="bubble" id="question2Answer" style="white-space:pre-line;"></p>
+							<a href="#" id="question2Link" class="btn btn_gray_line"
+								style="display: none;"> 링크 이동버튼 <svg width="20" height="20"
+									viewBox="0 0 20 20" fill="none"
+									xmlns="http://www.w3.org/2000/svg">
+                                        <path
+										d="M3.51834 16.4785C3.9049 16.8656 4.36415 17.1725 4.86969 17.3816C5.37523 17.5907 5.9171 17.6978 6.46418 17.6968C7.01137 17.6978 7.55336 17.5907 8.05903 17.3816C8.5647 17.1725 9.0241 16.8656 9.41084 16.4785L11.7675 14.121L10.5892 12.9427L8.23251 15.3002C7.7629 15.7677 7.12723 16.0301 6.46459 16.0301C5.80195 16.0301 5.16628 15.7677 4.69668 15.3002C4.22876 14.8308 3.96601 14.195 3.96601 13.5323C3.96601 12.8695 4.22876 12.2337 4.69668 11.7643L7.05418 9.40767L5.87584 8.22933L3.51834 10.586C2.73818 11.368 2.30005 12.4276 2.30005 13.5323C2.30005 14.6369 2.73818 15.6965 3.51834 16.4785ZM16.4817 9.40767C17.2614 8.62541 17.6993 7.56593 17.6993 6.46142C17.6993 5.3569 17.2614 4.29743 16.4817 3.51517C15.6996 2.73501 14.6401 2.29688 13.5354 2.29688C12.4308 2.29688 11.3712 2.73501 10.5892 3.51517L8.23251 5.87267L9.41084 7.051L11.7675 4.6935C12.2371 4.22599 12.8728 3.96353 13.5354 3.96353C14.1981 3.96353 14.8337 4.22599 15.3033 4.6935C15.7713 5.16289 16.034 5.79864 16.034 6.46142C16.034 7.1242 15.7713 7.75994 15.3033 8.22933L12.9458 10.586L14.1242 11.7643L16.4817 9.40767Z"
+										fill="#AAAAAA" />
+                                        <path
+										d="M7.05331 14.125L5.87415 12.9467L12.9466 5.875L14.125 7.05417L7.05331 14.125Z"
+										fill="#AAAAAA" />
+                                    </svg>
+							</a>
+							<div class="btn_wrap">
+								<button type="button" class="btn btn_navy" onClick="javascript:init(0)">
+									<svg width="17" height="16" viewBox="0 0 17 16" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+                                            <path
+											d="M4.08333 14.6698H13.4167C13.7703 14.6698 14.1094 14.5293 14.3595 14.2793C14.6095 14.0292 14.75 13.6901 14.75 13.3365V7.33647C14.7505 7.24873 14.7337 7.16175 14.7005 7.08053C14.6673 6.9993 14.6185 6.92543 14.5567 6.86313L9.22333 1.5298C9.09843 1.40563 8.92946 1.33594 8.75333 1.33594C8.57721 1.33594 8.40824 1.40563 8.28333 1.5298L2.95 6.86313C2.88701 6.92488 2.83689 6.99851 2.80256 7.07976C2.76823 7.16101 2.75037 7.24826 2.75 7.33647V13.3365C2.75 13.6901 2.89048 14.0292 3.14052 14.2793C3.39057 14.5293 3.72971 14.6698 4.08333 14.6698ZM7.41667 13.3365V10.0031H10.0833V13.3365H7.41667ZM4.08333 7.6098L8.75 2.94313L13.4167 7.6098V13.3365H11.4167V10.0031C11.4167 9.64951 11.2762 9.31037 11.0261 9.06032C10.7761 8.81028 10.437 8.6698 10.0833 8.6698H7.41667C7.06305 8.6698 6.72391 8.81028 6.47386 9.06032C6.22381 9.31037 6.08333 9.64951 6.08333 10.0031V13.3365H4.08333V7.6098Z"
+											fill="white" />
+                                        </svg>
+									홈으로
+								</button>
+								<button type="button" class="btn btn_navy" onClick="javascript:showPhoneNum()";>
+									<svg width="17" height="16" viewBox="0 0 17 16" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+                                            <path
+											d="M13.908 11.4281L11.198 8.96413C11.0699 8.8477 10.9016 8.7856 10.7285 8.79095C10.5555 8.7963 10.3913 8.86867 10.2707 8.9928L8.67534 10.6335C8.29134 10.5601 7.51934 10.3195 6.72467 9.5268C5.93001 8.73146 5.68934 7.95746 5.61801 7.57613L7.25734 5.98013C7.38161 5.85955 7.4541 5.69534 7.45945 5.52227C7.4648 5.34919 7.40259 5.18082 7.28601 5.05279L4.82267 2.34346C4.70603 2.21503 4.54392 2.13713 4.37077 2.1263C4.19762 2.11547 4.02707 2.17257 3.89534 2.28546L2.44867 3.52613C2.33341 3.64181 2.26462 3.79576 2.25534 3.95879C2.24534 4.12546 2.05467 8.07346 5.116 11.1361C7.78667 13.8061 11.132 14.0015 12.0533 14.0015C12.188 14.0015 12.2707 13.9975 12.2927 13.9961C12.4557 13.987 12.6096 13.9179 12.7247 13.8021L13.9647 12.3548C14.078 12.2235 14.1355 12.0531 14.1249 11.8799C14.1144 11.7068 14.0365 11.5447 13.908 11.4281Z"
+											fill="white" />
+                                        </svg>
+									유선전화안내
+								</button>
+							</div>
+						</div>
+					</li>
+					<li id="PhonenumberLi" style="display: none;">
+						<!-- 유선번호-->
+						<div class="profile" id="profile4">
+							<img src="/img/chat_profile.svg" alt="챗봇 대화하기" />
+						</div>
+						<div class="cont" id="question3Div">
+							<p class="bubble" id="question3Answer">컨텐츠 문의 054-811-4418
+								시스템 장애 문의 070-8656-8771</p>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- I-ON CONTENT LOG ANALYTICS SERVER TRACKING SCRIPT VER 5.5 FOR data.ex.co.kr -->
+<!-- COPYRIGHT (C) 1998-2009 I-ON Communications Co.,Ltd. All rights reserved. -->
+<script type='text/javascript' id='iclas_openoasis'>
+//<![CDATA[
+   // iclasAddLoadEvent(iclasLoad);
+    function iclasAddLoadEvent(func) {
+        var oldonload = window.onload;
+        if(typeof window.onload != 'function') { window.onload = func; }
+        else { window.onload = function() { oldonload(); func(); } }
+    }
+
+    function iclasLoad() {
+        try {
+            var serviceId = 'openoasis';
+            var serverUrl = 'http://wwwlog.ex.co.kr:8090/iclas';
+            var head = document.getElementsByTagName('head')[0];
+            var script = document.createElement('script');
+            var loaded = false;
+            script.type = 'text/javascript'; script.charset = 'UTF-8';
+            script.onload = function () { iclas.execute(serviceId, serverUrl); }
+            script.id = 'js_' + serviceId;
+            script.src = serverUrl + '/tracker/tracker.js';
+            head.appendChild(script);
+        } catch(e) {}
+    }
+//]]>
+</script>
+<script>
+
+// 2024.11.19 한태상 챗봇 채팅창 오픈시 카테고리 선택
+function chatOpen(){
+	if($('#chatbotctgr').is(':empty')){
+		$.ajax({
+	        url: g_contextPath + '/openoasis/chatbot/Chatbot/selectChatbotCtgrList.do'
+			, type: 'post'
+	        , async: false
+			, dataType: 'json'
+			, success: function(d) {
+				for(var i in d.result){
+					var row = d.result[i];
+					var html = ' <li><button type="button" class="ctgrButton" data-index="'+ i +'"><span class="icon"><img src="/portal/getImage.do?keyValue='+ row.img_file_id +'" alt="'+ row.org_FILE_NAME +'/"></span>' + row.ctgr + '</button></li>'
+					$('#chatbotctgr').append(html);	
+				}
+				$('#chatbotctgr').on('click', 'button', function(){
+					init(0);
+					$('.ctgrButton').prop('disabled', true);
+					var index = $(this).data('index');
+					question(d.result[index]);
+				});
+				getTime('#chatboxCtgrDiv', 'N');
+			}
+			, error : function() {
+				alert("처리 중 에러가 발생하였습니다.");
+			}
+		});
+	}
+}
+//2024.11.19 한태상 챗봇 카테고리 선택후 첫 질문
+function question(data){
+	setTimeout(function() {
+		getTime('#userAnswer1', 'Y', data.ctgr);
+		scrollToBottom();
+		$.ajax({
+	        url: g_contextPath + '/openoasis/chatbot/Chatbot/selectChatbotCtgrFaqList.do'
+			, type: 'post'
+	        , async: false
+			, dataType: 'json'
+			, data: {
+				ctgr_cd : data.ctgr_cd
+			}
+			, success: function(d) {
+				var html = '<p class="bubble"><strong>'+ data.ctgr + '</strong>에 가장 많은 질문을 모아봤어요.</p><div class="sel_opt col"><ul>'
+				for(var i in d.result){
+					var row = d.result[i];
+					html+= '<li><button type="button" data-index="'+ i +'">'+ row.qstn +'</button></li>'
+				}
+				html += '</ul></div>'
+				setTimeout(function() {
+					$('.ctgrButton').removeAttr('disabled');
+					$('#question1Div').empty();
+					$('#profile2').show();
+					$('#question1Div').append(html);
+					$('#question1Div button').on('click', function(){
+						init(1);
+						var index = $(this).data('index');
+						questionDtl(d.result[index]);
+					});
+				getTime('#question1Div','N');
+				scrollToBottom();
+				}, 1000);
+			}
+			, error : function() {
+				alert("처리 중 에러가 발생하였습니다.");
+			}
+		});
+	}, 500);
+}
+
+//2024.11.19 한태상 챗봇 카테고리 선택후 첫 질문
+function questionDtl(data){
+	setTimeout(function() {
+		getTime('#userAnswer2', 'Y', data.qstn);
+		scrollToBottom();
+	}, 500);
+	setTimeout(function() {
+		$('#profile3').show();
+		$('#question2Div').show();
+		$('#question2Div .time').empty();
+		$('#question2Answer').text(data.repl);
+		
+		//2024.11.20 url 버튼 사용시 화면에 출력
+		if(data.butn_use_yn == "Y"){
+			$('#question2Link').show();
+			
+			//2024.11.28 조현웅 npag_yn값에 따라 새창/현재창 속성 추가
+			if(data.npag_yn == "Y"){
+				$('#question2Link').attr("target", "_blank");
+			} else if(data.npag_yn == "N"){
+				$('#question2Link').attr("target", "_self");
+			}
+			
+			if(data.url != null || data.url != ''){
+				$('#question2Link').attr("href",data.url);
+				var html = data.butn_nm + '<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.51834 16.4785C3.9049 16.8656 4.36415 17.1725 4.86969 17.3816C5.37523 17.5907 5.9171 17.6978 6.46418 17.6968C7.01137 17.6978 7.55336 17.5907 8.05903 17.3816C8.5647 17.1725 9.0241 16.8656 9.41084 16.4785L11.7675 14.121L10.5892 12.9427L8.23251 15.3002C7.7629 15.7677 7.12723 16.0301 6.46459 16.0301C5.80195 16.0301 5.16628 15.7677 4.69668 15.3002C4.22876 14.8308 3.96601 14.195 3.96601 13.5323C3.96601 12.8695 4.22876 12.2337 4.69668 11.7643L7.05418 9.40767L5.87584 8.22933L3.51834 10.586C2.73818 11.368 2.30005 12.4276 2.30005 13.5323C2.30005 14.6369 2.73818 15.6965 3.51834 16.4785ZM16.4817 9.40767C17.2614 8.62541 17.6993 7.56593 17.6993 6.46142C17.6993 5.3569 17.2614 4.29743 16.4817 3.51517C15.6996 2.73501 14.6401 2.29688 13.5354 2.29688C12.4308 2.29688 11.3712 2.73501 10.5892 3.51517L8.23251 5.87267L9.41084 7.051L11.7675 4.6935C12.2371 4.22599 12.8728 3.96353 13.5354 3.96353C14.1981 3.96353 14.8337 4.22599 15.3033 4.6935C15.7713 5.16289 16.034 5.79864 16.034 6.46142C16.034 7.1242 15.7713 7.75994 15.3033 8.22933L12.9458 10.586L14.1242 11.7643L16.4817 9.40767Z" fill="#AAAAAA"></path><path d="M7.05331 14.125L5.87415 12.9467L12.9466 5.875L14.125 7.05417L7.05331 14.125Z" fill="#AAAAAA"></path></svg>';
+				$('#question2Link').html(html);
+			}
+			
+		}
+		getTime('#question2Div', 'N');
+		scrollToBottom();
+	}, 1500);
+}
+
+//2024.11.20 한태상 챗봇 유선번호 클릭시 채팅
+function showPhoneNum(){
+	setTimeout(function() {
+		$('#PhonenumberLi').show();
+		scrollToBottom();
+	}, 500);
+}
+
+//2024.11.20 한태상 채팅 시간 가져오기 userYn으로 chatbot/user 나눔 data는 유저채팅 경우 필요한 데이터 
+function getTime(div,userYn, data){
+	var date = new Date();
+	var hour = date.getHours().toString().padStart(2,'0');
+	var min = date.getMinutes().toString().padStart(2,'0');
+	
+	if(userYn == 'N'){
+		$(div).append('<span class="time">'+hour +':'+ min +'</span>');
+	}else if(userYn == 'Y'){
+		//user일 경우 empty까지 같이해줌
+		$(div).empty();
+		var userHtml ='<div class="cont"><p class="bubble">'+ data +'</p>'
+		userHtml += '<span class="time">'+hour +':'+ min +'</span>';
+		$(div).append(userHtml);
+	}
+}
+//2024.11.20 한태상 채팅창 초기화
+function init(depth){
+	if(depth < 1){
+		$('#userAnswer1').empty();
+		$('#profile2').hide();
+		$('#question1Div').empty();
+	}if(depth < 2){
+		$('#userAnswer2').empty();
+		$('#profile3').hide();
+		$('#question2Div').hide();
+		$('#question2Answer').text("");
+		$('#question2Link').attr("href","#");
+		$('#PhonenumberLi').hide();
+	}
+}
+
+//2024.11.20 한태상 채팅창 스크롤 제일 아래로 보내는 fuction
+function scrollToBottom() {
+	var chatBox = document.getElementById('scroll'); 
+	chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+</script>
+<noscript>
+	스크립트를 지원하지 않습니다. 정상적인 작동이 불가능 합니다.
+</noscript>
+<!-- END OF ICLAS TRACKING SCRIPT -->
+
+
+</form>
+<iframe id="fileFrame" name="fileFrame" width="0"></iframe>
+</body>
+
+</html>

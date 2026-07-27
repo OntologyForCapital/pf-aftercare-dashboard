@@ -45,6 +45,9 @@ def biz5(s: pd.Series) -> pd.Series:
 def load():
     panel = pd.read_csv(ROOT / "data" / "panel_clean.csv")
     sites = pd.read_csv(ROOT / "data" / "site_master.csv")
+    loc_path = ROOT / "data" / "site_location.csv"
+    if loc_path.exists():
+        sites = sites.merge(pd.read_csv(loc_path), on="site_id", how="left")
     panel["biz5"] = biz5(panel["biz_class"])
     sites["biz5"] = biz5(sites["biz_class"])
     sites["sale_dt"] = pd.to_datetime(sites["sale_dt"], errors="coerce")
@@ -119,8 +122,31 @@ if f_sites.empty:
     st.warning("조건에 맞는 사업장이 없습니다. 필터를 완화해 주세요.")
     st.stop()
 
-tab1, tab2, tab3, tab4 = st.tabs(
-    ["개요", "가격 시계열", "위험 스크리닝", "사내 데이터 결합(준비)"])
+RISK_DEFAULTS = {"가격 소진": 20, "유찰 누적": 15, "장기 체류": 15, "저감 반복": 10,
+                 "고가 유지": 15, "감정 괴리": 10, "지가 하락": 10, "산업시설": 5}
+
+
+def risk_scores(s: pd.DataFrame, w: dict):
+    """규칙 기반 위험 스코어 (스크리닝 탭·지도 공용)."""
+    rules = pd.DataFrame({
+        "가격 소진": (s["discount_last"] < 0.5),
+        "유찰 누적": (s["max_round"] >= 5),
+        "장기 체류": (s["n_months"] >= 12),
+        "저감 반복": (s["n_bid_cut"] >= 2),
+        "고가 유지": (s["excess_pp"] > 10),
+        "감정 괴리": (s["appr_vs_rtms"] > 5),
+        "지가 하락": (s["land_chg_cum12_last"] < 0),
+        "산업시설": (s["biz5"] == "산업시설"),
+    }).fillna(False)
+    weights = pd.Series(w).reindex(rules.columns).fillna(0).astype(float)
+    if weights.sum() == 0:
+        weights = pd.Series(RISK_DEFAULTS).reindex(rules.columns).astype(float)
+    score = rules.astype(float).mul(weights, axis=1).sum(axis=1) / weights.sum() * 100
+    return rules, score
+
+
+tab1, tab2, tab3, tab_map, tab4 = st.tabs(
+    ["개요", "가격 시계열", "위험 스크리닝", "지도", "사내 데이터 결합(준비)"])
 
 # ─────────────────────────────── 탭1 개요
 with tab1:
@@ -263,33 +289,22 @@ with tab3:
             w[nm] = wc[i % 4].slider(nm, 0, 30, dv, key=f"w_{nm}")
 
     s = f_sites.copy()
-    rules = pd.DataFrame({
-        "가격 소진": (s["discount_last"] < 0.5),
-        "유찰 누적": (s["max_round"] >= 5),
-        "장기 체류": (s["n_months"] >= 12),
-        "저감 반복": (s["n_bid_cut"] >= 2),
-        "고가 유지": (s["excess_pp"] > 10),
-        "감정 괴리": (s["appr_vs_rtms"] > 5),
-        "지가 하락": (s["land_chg_cum12_last"] < 0),
-        "산업시설": (s["biz5"] == "산업시설"),
-    }).fillna(False)
-    weights = pd.Series(w).reindex(rules.columns).fillna(0).astype(float)
-    if weights.sum() == 0:
-        weights = pd.Series(dict(defaults)).reindex(rules.columns).astype(float)
-    score = rules.astype(float).mul(weights, axis=1).sum(axis=1) / weights.sum() * 100
+    rules, score = risk_scores(s, w)
     s["위험점수"] = score.round(1)
     s["발동규칙"] = [" · ".join(rules.columns[m]) for m in rules.to_numpy()]
 
     thr = st.slider("표시 임계 점수", 0, 100, 40, step=5)
+    loc_cols = [c for c in ["dist_ic_km", "dist_city_km", "city_name"] if c in s.columns]
     view = (s[s["위험점수"] >= thr]
             .sort_values("위험점수", ascending=False)
             [["site_id", "address", "biz_type", "sido", "위험점수", "발동규칙",
               "n_months", "max_round", "discount_last", "minbid_drop_pct",
-              "excess_pp", "appraisal_last", "outcome"]]
+              "excess_pp", "appraisal_last", "outcome"] + loc_cols]
             .rename(columns={"n_months": "체류(월)", "max_round": "최대회차",
                              "discount_last": "최저/감정", "minbid_drop_pct": "최저가누적%",
                              "excess_pp": "초과할인pp", "appraisal_last": "감정가(백만)",
-                             "outcome": "처분결과"}))
+                             "outcome": "처분결과", "dist_ic_km": "IC거리km",
+                             "dist_city_km": "도시거리km", "city_name": "최근접도시"}))
     st.markdown(f"**{len(view):,}곳** / {len(s):,}곳이 임계 {thr}점 이상")
     st.dataframe(view, width="stretch", height=420)
     st.download_button("CSV 다운로드", view.to_csv(index=False).encode("utf-8-sig"),
@@ -305,6 +320,52 @@ with tab3:
                         line=dict(width=2))
     fig.update_layout(showlegend=False)
     st.plotly_chart(chart_layout(fig, "위험점수", 340), width="stretch")
+
+# ─────────────────────────────── 지도 탭
+with tab_map:
+    st.subheader("사업장 위치 지도")
+    geo = f_sites.dropna(subset=["lon", "lat"]).copy()
+    n_missing = len(f_sites) - len(geo)
+    cap = f"좌표 확보 {len(geo):,}곳 표시"
+    if n_missing:
+        cap += f" (좌표 미해상 {n_missing:,}곳 제외 — 신규 택지 블록형 주소 등)"
+    st.caption(cap)
+    if geo.empty:
+        st.info("현재 필터에 좌표 보유 사업장이 없습니다.")
+    else:
+        mode = st.radio("색상 기준", ["유형", "위험점수(기본 가중치)"],
+                        horizontal=True, label_visibility="collapsed")
+        _, gscore = risk_scores(geo, RISK_DEFAULTS)
+        geo["위험점수"] = gscore.round(1)
+        geo["표시크기"] = np.sqrt(geo["appraisal_last"].fillna(
+            geo["appraisal_last"].median()).clip(lower=100))
+        hover = {"biz_type": True, "appraisal_last": ":,.0f", "n_months": True,
+                 "위험점수": True, "lon": False, "lat": False, "표시크기": False}
+        for c in ["dist_ic_km", "city_name"]:
+            if c in geo.columns:
+                hover[c] = True
+        import plotly.express as px
+        if mode == "유형":
+            fig = px.scatter_map(
+                geo, lat="lat", lon="lon", color="biz5", size="표시크기",
+                category_orders={"biz5": list(C.keys())},
+                color_discrete_map=C, hover_name="address", hover_data=hover,
+                size_max=16, zoom=6, center=dict(lat=36.2, lon=127.6), height=620)
+        else:
+            fig = px.scatter_map(
+                geo, lat="lat", lon="lon", color="위험점수", size="표시크기",
+                color_continuous_scale=["#cde2fb", "#86b6ef", "#3987e5",
+                                        "#1c5cab", "#0d366b"],
+                hover_name="address", hover_data=hover,
+                size_max=16, zoom=6, center=dict(lat=36.2, lon=127.6), height=620)
+        fig.update_layout(map_style="carto-positron",
+                          margin=dict(l=0, r=0, t=10, b=0),
+                          paper_bgcolor=SURFACE,
+                          legend=dict(orientation="h", y=1.04, x=0,
+                                      title_text=""))
+        st.plotly_chart(fig, width="stretch")
+        st.caption("마커 크기 = 감정가 규모 · IC거리/최근접 도시는 하버사인 직선거리(도로거리 아님) · "
+                   "IC 좌표: OpenStreetMap(ODbL)")
 
 # ─────────────────────────────── 탭4 사내 데이터 (placeholder)
 with tab4:
