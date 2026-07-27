@@ -219,6 +219,101 @@ with tab2:
     st.plotly_chart(chart_layout(fig, "최저입찰가 ÷ 감정가", 300),
                     width="stretch")
 
+    st.subheader("그룹별 경로 비교 — 지역 × 종류")
+    gc1, gc2, gc3 = st.columns([1, 1.4, 1])
+    dim = gc1.selectbox("그룹 기준", ["권역×유형", "유형", "권역", "시도×유형"])
+    metric_name = gc2.selectbox(
+        "지표", ["최저입찰가/감정가 비율(중앙) — 저감 깊이", "최저입찰가(중앙, 백만원)",
+                "감정가(중앙, 백만원)", "공개 사업장 수"])
+    min_n = gc3.slider("월 최소 표본(곳)", 1, 20, 5,
+                       help="이보다 적은 사업장으로 계산된 월 포인트는 숨김(잡음 방지)")
+
+    gp = f_panel.copy()
+    dims = {"권역×유형": ["region", "biz5"], "유형": ["biz5"],
+            "권역": ["region"], "시도×유형": ["sido", "biz5"]}[dim]
+    METRICS = {
+        "최저입찰가/감정가 비율(중앙) — 저감 깊이": ("discount_ratio", "median", "최저입찰가 ÷ 감정가"),
+        "최저입찰가(중앙, 백만원)": ("min_bid_mn", "median", "백만원"),
+        "감정가(중앙, 백만원)": ("appraisal_mn", "median", "백만원"),
+        "공개 사업장 수": ("site_id", "nunique", "곳"),
+    }
+    mcol, mfn, ytitle = METRICS[metric_name]
+    g = (gp.dropna(subset=[d for d in dims])
+         .groupby(dims + ["month_key"])
+         .agg(val=(mcol, mfn), n=("site_id", "nunique")).reset_index())
+    g = g[g["n"] >= min_n]
+    g["그룹"] = g[dims].astype(str).agg(" · ".join, axis=1)
+
+    top_groups = (g.groupby("그룹")["n"].max().sort_values(ascending=False)
+                  .head(12).index.tolist())
+    dropped = g["그룹"].nunique() - len(top_groups)
+    fig = go.Figure()
+    DASH_BY_REGION = {"수도권": "solid", "지방": "dash"}
+    for grp in top_groups:
+        sub = g[g["그룹"] == grp].sort_values("month_key")
+        b5 = sub[dims[-1]].iat[0] if dims[-1] == "biz5" else None
+        color = C.get(b5, MUTED) if b5 else \
+            (C["주거시설"] if sub[dims[0]].iat[0] == "수도권" else C["상업시설"])
+        dash = DASH_BY_REGION.get(sub[dims[0]].iat[0], "solid") \
+            if dims[0] in ("region",) else "solid"
+        fig.add_scatter(x=sub["month_key"], y=sub["val"], name=grp,
+                        mode="lines+markers",
+                        line=dict(color=color, width=2, dash=dash),
+                        marker=dict(size=6),
+                        hovertemplate=f"{grp}: %{{y:,.3g}} (표본 %{{customdata}}곳)<extra></extra>",
+                        customdata=sub["n"])
+    # ── 이벤트 마커: 기준금리 변경(패널 자동 추출) + 수동 이벤트 파일 ──
+    months_sorted = sorted(f_panel["month_key"].unique())
+    rate_by_m = panel.groupby("month_key")["base_rate"].first()
+    ev_list = []
+    prev = None
+    for m in sorted(rate_by_m.index):
+        if prev is not None and pd.notna(rate_by_m[m]) and rate_by_m[m] != rate_by_m[prev]:
+            arrow = "▼" if rate_by_m[m] < rate_by_m[prev] else "▲"
+            ev_list.append((m, f"{arrow} 기준금리 {rate_by_m[prev]:.2f}→{rate_by_m[m]:.2f}%"))
+        prev = m
+    ev_manual = ROOT / "data" / "events_national.csv"
+    if ev_manual.exists():
+        for _, r in pd.read_csv(ev_manual).iterrows():
+            m = str(r["month"])[:7]
+            if m in months_sorted:
+                ev_list.append((m, f"◆ {r['label']}"))
+    for i, (m, lbl) in enumerate(ev_list):
+        if m in months_sorted:
+            fig.add_vline(x=m, line_dash="dot", line_color=MUTED, line_width=1)
+            fig.add_annotation(x=m, y=1.01 + 0.06 * (i % 2), yref="paper",
+                               text=lbl, showarrow=False,
+                               font=dict(size=11, color=INK2))
+    note = f"표본 {min_n}곳 미만 월 숨김"
+    if dropped > 0:
+        note += f" · 그룹 {dropped}개는 표본 상위 12개에 밀려 미표시(시도 필터로 좁히면 표시)"
+    st.caption(note + " · 수직 점선 = 전국 이벤트(금리 변경 자동 표시, "
+               "추가 이벤트는 data/events_national.csv에 month,label로 등록)")
+    fig = chart_layout(fig, ytitle, 460)
+    fig.update_layout(legend=dict(y=1.22), margin=dict(t=80))
+    st.plotly_chart(fig, width="stretch")
+
+    # ── 인근 규제변경 이벤트 (토지이음 — 파일 존재 시) ──
+    reg_path = ROOT / "data" / "location" / "site_regulation_events.csv"
+    if reg_path.exists():
+        reg = pd.read_csv(reg_path)
+        reg = reg[reg["site_id"].isin(f_sites["site_id"])]
+        if len(reg):
+            rm = (reg.groupby("event_month")
+                  .agg(건수=("site_id", "count"), 사업장=("site_id", "nunique"))
+                  .reindex(months_sorted).fillna(0).reset_index()
+                  .rename(columns={"index": "month_key"}))
+            figr = go.Figure(go.Bar(
+                x=rm["event_month" if "event_month" in rm else "month_key"],
+                y=rm["사업장"], marker_color=C["산업시설"],
+                marker_line_width=0, width=0.55,
+                hovertemplate="%{x}: 사업장 %{y:.0f}곳 (이벤트 %{customdata:.0f}건)<extra></extra>",
+                customdata=rm["건수"]))
+            figr.update_traces(marker=dict(cornerradius=3))
+            st.caption("필터 대상 사업장 인근(같은 읍면동) 도시계획 규제변경 — "
+                       "월별 발생 사업장 수 (토지이음 조서, 읍면동 근사·탐색 등급)")
+            st.plotly_chart(chart_layout(figr, "사업장 수", 220), width="stretch")
+
     st.subheader("개별 사업장 경로")
     meta_lookup = (sites.set_index("site_id")[["address", "biz_type", "sido"]]
                    .fillna("미상"))
