@@ -109,13 +109,22 @@ def fix_scale(df):
         fac = pd.Series(1.0, index=df.index)
         fac[(r >= 3e5) & (r <= 3e6)] = 1e6
         fac[(r >= 300) & (r <= 3000)] = 1e3
-        # 절대값 가드
-        big = (a / fac > 1e7) & a.notna()
+        # 하향 배율: 값이 시계열 중앙값의 1/300 미만(단위가 거꾸로 큰 축척으로
+        # 기록된 값, 예: 시흥장현 B-2BL bv=8) -> 1e3/1e6 곱해 정상 대역 복귀
+        small = (r < 1 / 300) & (a >= 1)
+        fac[small & (r * 1e3).between(1 / 300, 300)] = 1e-3
+        fac[small & ~(r * 1e3).between(1 / 300, 300)
+            & (r * 1e6).between(1 / 300, 300)] = 1e-6
+        # 절대값 가드(capex는 5e6백만원=5조 초과도 실물 불가능)
+        thr = 5e6 if c.startswith("capex") else 1e7
+        big = (a / fac > thr) & a.notna()
         fac[big & (a / 1e6).between(0.1, 5e6)] = 1e6
         fac[big & ~(a / 1e6).between(0.1, 5e6) & (a / 1e3).between(0.1, 5e6)] = 1e3
         df[c] = v / fac
-        n_fixed_vals += int((fac > 1).sum())
-        row_fac = np.maximum(row_fac, fac)
+        n_fixed_vals += int((fac != 1).sum())
+        # 행 대표 배율: 편차(|log10|)가 가장 큰 계수를 기록
+        stronger = np.abs(np.log10(fac)) > np.abs(np.log10(row_fac))
+        row_fac = row_fac.where(~stronger, fac)
     df["scale_factor"] = row_fac
     return df, n_fixed_vals
 
@@ -138,7 +147,11 @@ def main():
     n_junk = int(junk.sum())
     df = df[~junk].copy()
     df.loc[df["property"] == "nan", "property"] = "(무명)"
-    df["prop_uid"] = df["reits"].str.strip() + "|" + df["property"]
+    # 물건 키: '공통(단일)_' 접두 제거 + 공백 전부 제거 -> 공백 변형으로 갈라진
+    # 동일 자산 시계열 병합(예: '평택시소사벌 지구 S-2BL' vs '평택시소사벌지구S-2BL')
+    prop_key = (df["property"].str.replace(r"^공통\(단일\)_", "", regex=True)
+                .str.replace(r"\s+", "", regex=True))
+    df["prop_uid"] = df["reits"].str.strip() + "|" + prop_key
 
     # --- 중복 제거: 동일 (물건, 기수, 분기)에 복수 행 -> bv 비결측 우선, 후행(idx 큰) 행 유지
     n0 = len(df)
@@ -210,20 +223,44 @@ def main():
         (prev_bv > 0) & df["book_value_mn"].notna(),
         (df["book_value_mn"] / prev_bv - 1) * 100, np.nan)
 
-    # 평가 이벤트 판정 가능 전이: 양쪽 기간 모두 bv가 보고된(온전히 파싱된) 행일 것.
-    # bv 결측 행은 결산 파일 부분 파싱이 많아 reval/impair 결측이 '미기재'와 섞여
-    # fillna(0) 시 가짜 이벤트(값 출몰 플래핑)를 만든다 -> 게이트로 차단.
-    bv_ok = df["book_value_mn"].notna()
-    df["eval_pair_ok"] = (bv_ok & bv_ok.groupby(df["prop_uid"]).shift()
-                          ).fillna(False).astype(int)
+    # 평가 이벤트 판정 가능 전이: 양쪽 기간 모두 bv>0으로 보고된(온전히 파싱된)
+    # 행이고 기간 간격이 양수일 것. bv 결측 행은 결산 파일 부분 파싱이 많아
+    # reval/impair 결측이 '미기재'와 섞여 fillna(0) 시 가짜 이벤트를 만들고,
+    # gap<=0 전이는 동일 반기말 이중 보고라 평가 변화 판정 대상이 아니다.
+    bv_ok = df["book_value_mn"] > 0
+    gap_ok = (df["gap_months"] > 0).fillna(False).astype(bool)
+    df["eval_pair_ok"] = (bv_ok & bv_ok.groupby(df["prop_uid"]).shift(fill_value=False)
+                          & gap_ok).astype(int)
 
     # 재평가 이벤트: reval 합계(결측=재평가 미적용으로 0 처리)의 기간 간 변동
     reval = df[["reval_land_mn", "reval_bldg_mn"]].fillna(0).sum(axis=1)
     df["reval_total_mn"] = reval
     df["d_reval_mn"] = g["reval_total_mn"].diff()
     ok = df["eval_pair_ok"] == 1
-    df["reval_event"] = ((df["d_reval_mn"].abs() > EVENT_THRESH_MN) & ok).astype(int)
-    df["reval_down_event"] = ((df["d_reval_mn"] < -EVENT_THRESH_MN) & ok).astype(int)
+    raw_ev = df["d_reval_mn"].abs() > EVENT_THRESH_MN
+    raw_down = df["d_reval_mn"] < -EVENT_THRESH_MN
+
+    # 처분(derecognition) 게이트: 분양전환·매각 시 재평가잉여금 제거는 '평가 하향'이
+    # 아님. bv 급감(>50%)·bv 소멸(현재 또는 다음 기간 <=0)·|d_reval|>직전 bv 이면 처분.
+    bv_now, bv_prev2 = df["book_value_mn"], df["bv_prev_mn"]
+    bv_next = g["book_value_mn"].shift(-1)
+    df["disposal_event"] = (raw_down & (bv_prev2 > 0)
+                            & ((bv_now < 0.5 * bv_prev2) | (bv_now <= 0)
+                               | (bv_next <= 0)
+                               | (df["d_reval_mn"].abs() > bv_prev2))).astype(int)
+
+    # 플랩 게이트: 하락 후 다음 기간에 직전 값으로 복귀(보고 노이즈, 예: 김포양곡)
+    # -> 왕복의 양쪽 전이 모두 평가 이벤트에서 제외
+    rv_prev = g["reval_total_mn"].shift(1)
+    rv_next = g["reval_total_mn"].shift(-1)
+    flap_t = (raw_ev & ((rv_next - rv_prev).abs() <= EVENT_THRESH_MN)
+              & ((rv_next - df["reval_total_mn"]).abs() > EVENT_THRESH_MN)).fillna(False)
+    df["reval_flap"] = (flap_t | flap_t.groupby(df["prop_uid"])
+                        .shift(1, fill_value=False)).astype(int)
+
+    clean = ok & df["disposal_event"].eq(0) & df["reval_flap"].eq(0)
+    df["reval_event"] = (raw_ev & clean).astype(int)
+    df["reval_down_event"] = (raw_down & clean).astype(int)
 
     # 손상 이벤트: impair_acc(결측=손상 없음으로 0 처리) 증가
     df["impair_filled_mn"] = df["impair_acc_mn"].fillna(0)
@@ -262,7 +299,7 @@ def main():
         "invest_target", "type_pf", "location", "sido", "region",
         "book_value_mn", "bv_prev_mn", "bv_chg_pct", "scale_factor",
         "reval_land_mn", "reval_bldg_mn", "reval_total_mn", "d_reval_mn",
-        "reval_event", "reval_down_event",
+        "reval_event", "reval_down_event", "disposal_event", "reval_flap",
         "impair_acc_mn", "impair_filled_mn", "d_impair_mn", "impair_event",
         "eval_pair_ok",
         "dep_acc_mn", "capex_land_mn", "capex_bldg_mn",
@@ -294,7 +331,9 @@ def main():
                   months_eval_sum=("months_eval", "sum"),
                   reval_events=("reval_event", "sum"),
                   reval_down_events=("reval_down_event", "sum"),
-                  impair_events=("impair_event", "sum"))
+                  impair_events=("impair_event", "sum"),
+                  disposal_events=("disposal_event", "sum"),
+                  reval_flap_transitions=("reval_flap", "sum"))
              .reset_index())
     yoy = (ylast.dropna(subset=["bv_yoy_pct"])
                 .groupby(["region", "type_pf", "year"], dropna=False)
@@ -331,6 +370,8 @@ def main():
         n = int(tr[col].sum())
         print(f"{name}: {n} events / {n_ok} eval-transitions = {n/n_ok*100:.3f}%/기간, "
               f"per-month = {n/months*100:.4f}%/월")
+    print(f"disposal(처분) 제외: {int(tr['disposal_event'].sum())}건, "
+          f"flap(왕복 노이즈) 제외 전이: {int(tr['reval_flap'].sum())}건")
     print("saved:", OUT_PANEL)
     print("saved:", OUT_GROUP)
 
